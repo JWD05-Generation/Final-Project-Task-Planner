@@ -56,21 +56,150 @@
             src="./images/imglogowhite-removebg.png"
             alt="image logo"
           />
-          <h2 class="text-center">Welcome to your Task Organiser</h2>
+          <h2 class="text-center justify-content-center">
+            Welcome to your Task Organiser
+          </h2>
         </div>
-        <div class="col-sm d-flex justify-content-end align-items-end">
-          <a
-            href="./updateTask.html"
-            class="btn btn-secondary btn-lg active rounded-circle"
-            role="button"
-            aria-pressed="true"
-          >
-            Add Task</a
-          >
-          <!-- <button type="button" class=" btn btn-secondary rounded-circle" href="">
-            Add Task
-          </button> -->
+        <div class="row">
+          <div class="col-sm d-flex justify-content-end align-items-end">
+            <!-- <a
+              href="./updateTask.html"
+              class="btn btn-secondary btn-lg active rounded"
+              role="button"
+              aria-pressed="true">
+              Add Task</a>
+             -->
+            <!-- adding model view start  -->
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-toggle="modal"
+              data-target="#exampleModal"
+            >Add Task
+            </button>
+
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog " role="document">
+                <div class="modal-content">
+                  <div class="modal-header ">
+                    <h5 class="modal-title font-weight-bold" id="exampleModalLabel">
+                      Add New Task
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body modelbodycolor ">
+                    <!-- model body starts here  -->
+
+                    <form method="post ">
+                      <div class="form-group  ">
+                        <label for="taskName ">Task Name</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="taskName"
+                          placeholder="Task Name"
+                        />
+                      </div>
+                      <br />
+                      <div class="form-group">
+                        <label for="taskDescription">Task Description</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="taskDescription"
+                          placeholder="Task Description"
+                        />
+                      </div>
+                      <br />
+                      <div class="form-group">
+                        <label for="assignedTo">Assigned To</label>
+                        <select id="assignedTo" class="form-control">
+                          <option selected>Choose..</option>
+                          <option>Dharani</option>
+                          <option>Dhakshi</option>
+                        </select>
+                      </div>
+                      <br />
+                      <div class="form-group">
+                        <!-- Date input -->
+                        <label class="control-label" for="date">Due Date</label>
+
+                        <input
+                          type="date"
+                          class="form-control"
+                          name="birtdate"
+                          placeholder="MM/DD/YYY"
+                        />
+                      </div>
+                      <br />
+                      <div class="form-group">
+                        <label for="status">Status</label>
+                        <select id="status" class="form-control">
+                          <option selected>Choose...</option>
+                          <option>ToDo</option>
+                          <option>In-Progress</option>
+                          <option>Review</option>
+                          <option>Done</option>
+                        </select>
+                      </div>
+                      <br />
+                      <div class="form-group text-center">
+                        <input
+                          type="submit"
+                          class="btn btn-secondary btn-lg"
+                          value="Add Task"
+                          data-dismiss="modal"
+                        />
+
+                        <input
+                          type="reset"
+                          class="btn btn-secondary btn-lg"
+                          value="Clear"
+                          data-dismiss="modal"
+                        />
+
+                        <input
+                          type="submit"
+                          class="btn btn-secondary btn-lg"
+                          value="Cancel"
+                          data-dismiss="modal"
+                        />
+                      </div>
+                    </form>
+
+                    <!-- model body ends here  -->
+                  </div>
+                  <div class="modal-footer">
+                    <div class="panel panel-footer">
+            <small>&copy; Task Planner</small>
+          </div>
+
+                   
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ended model view  -->
+          </div>
         </div>
+        <!-- -end roe  -->
       </div>
       <!-- header ends here  -->
       <!-- body starts here  -->
@@ -206,7 +335,7 @@
           <!-- first columns todo list ends here -->
         </div>
         <div class="col-sm border">
-        <!-- second column inprogress list starts here  -->
+          <!-- second column inprogress list starts here  -->
           <div id="accordion2" class="Accordion">
             <div class="card">
               <div class="card-header" id="heading2colOne">
@@ -306,7 +435,7 @@
 
           <!-- second column inprogress list ends here  -->
         </div>
-        <div class="col-sm border" >
+        <div class="col-sm border">
           <!-- third column done list starts here  -->
           <div id="accordion3" class="Accordion">
             <div class="card">
