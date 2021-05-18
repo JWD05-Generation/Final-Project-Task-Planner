@@ -1,5 +1,22 @@
+body{
+    background-color: rgba(248, 218, 201, 0.452);
+    font-family: 'Roboto', sans-serif;
+}
 img {
     border-image: 2px solid black;
   height: 130px;
   width: 130px;
+}
+.bgcolor-todo{
+    background-color: rgba(255, 142, 77, 0.74);
+}
+.bgcolor-inprogress{
+    background-color: rgba(92, 225, 230, 0.781);
+}
+.bgcolor-done{
+    background-color: rgba(0, 128, 53, 0.712);
+}
+.imgsmily{
+    height: 40px;
+    width: 50px;
 }

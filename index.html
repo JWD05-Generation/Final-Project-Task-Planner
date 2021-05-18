@@ -1,18 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="./css/mystyle.css" />
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="./css/mystyle.css" />
+    <!-- font links  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,100&display=swap"
+      rel="stylesheet"
+    />
     <title>Task Planner</title>
-</head>
-<body>
-    <img src="./images/logoTask.png" alt="image logo" />
-    <h2 class="text-center"> Welcome to your Task Organiser</h2>
-</body>
+    <script>
+      
+    </script>
+    <noscript>
+      <!-- This element will print the given message only when the execution of the  <script> tags does not take place.   -->
+      <p>Oops! This website requires a JavaScript-enabled browser.</p>
+    </noscript>
+  </head>
+  <body>
+    <div class="container-fluid border">
+      <!-- header starts here  -->
+      <div class="row">
+        <div class="col-sm">
+          <img
+            class="rounded-circle"
+            src="./images/logoimag2.png"
+            alt="image logo"
+          />
+          <h2 class="text-center">Welcome to your Task Organiser</h2>
+        </div>
+        <div class="col-sm border d-flex justify-content-end align-items-end " >
+          <button type="button" class=" btn btn-secondary rounded-circle" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
+            Add Task
+          </button>
+        
+
+        </div>
+      </div>
+      <!-- header ends here  -->
+      <!-- body starts here  -->
+      <!-- this is header  -->
+      <div class="row border header">
+        <div class="col-sm border bgcolor-todo ">  
+            <img class="imgsmily align-center" src="./images/todosmily.jpg" alt="to do smily" /> To-Do
+        </div>
+        <div class="col-sm border bgcolor-inprogress">
+            <img class="imgsmily align-center" src="./images/inprogresssmily1.jpg.jpg" alt="to do smily" />
+            In-progress</div>
+        <div class="col-sm border bgcolor-done">
+            <img class="imgsmily align-center" src="./images/donesimly2.jpg" alt="to do smily" />
+            Done</div>
+      </div>
+      <!-- list group start here  -->
+      <div class="row border header">
+        <div class="col-sm border">
+          <!-- first columns todo list starts here  -->
+
+          <div id="accordion">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button
+                    class="btn btn-link"
+                    data-toggle="collapse"
+                    data-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    Task #1
+                  </button>
+                </h5>
+              </div>
+
+              <div
+                id="collapseOne"
+                class="collapse show"
+                aria-labelledby="headingOne"
+                data-parent="#accordion"
+              >
+                <div class="card-body">
+                  <h5>Assigned To: Name1</h5>
+                  <p>
+                    Task Description: Anim pariatur cliche reprehenderit, enim
+                    eiusmod high life accusamus terry richardson ad squid. 3
+                    wolf moon officia aute, non cupidatat skateboard dolor
+                    brunch. Food truck quinoa nesciunt laborum eiusmod.
+                  </p>
+                  <p>Due Date: 21-05-2021</p>
+                  <p>Status:To-do</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                  <button
+                    class="btn btn-link collapsed"
+                    data-toggle="collapse"
+                    data-target="#collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo"
+                  >
+                    Task #2
+                  </button>
+                </h5>
+              </div>
+              <div
+                id="collapseTwo"
+                class="collapse"
+                aria-labelledby="headingTwo"
+                data-parent="#accordion"
+              >
+                <div class="card-body">
+                  <h5>Assigned To: Name1</h5>
+                  <p>
+                    Task Description: Anim pariatur cliche reprehenderit, enim
+                    eiusmod high life accusamus terry richardson ad squid. 3
+                    wolf moon officia aute, non cupidatat skateboard dolor
+                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+                    wolf moon tempor, sunt aliqua put a bird on it squid
+                    single-origin coffee nulla assumenda shoreditch et. Nihil
+                    anim keffiyeh helvetica, craft beer labore wes anderson cred
+                    nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                    vice lomo. Leggings occaecat craft beer farm-to-table, raw
+                    denim aesthetic synth nesciunt you probably haven't heard of
+                    them accusamus labore sustainable VHS.
+                  </p>
+                  <p>Due Date: 21-05-2021</p>
+                  <p>Status: TO-do</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                  <button
+                    class="btn btn-link collapsed"
+                    data-toggle="collapse"
+                    data-target="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
+                    Task #3
+                  </button>
+                </h5>
+              </div>
+              <div
+                id="collapseThree"
+                class="collapse"
+                aria-labelledby="headingThree"
+                data-parent="#accordion"
+              >
+                <div class="card-body">
+                  <h5>Assigned To: Name1</h5>
+                  <p>
+                    Task Description: Anim pariatur cliche reprehenderit, enim
+                    eiusmod high life accusamus terry richardson ad squid. 3
+                    wolf moon officia aute, non cupidatat skateboard dolor
+                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+                    wolf moon tempor, sunt aliqua put a bird on it squid
+                    single-origin coffee nulla assumenda shoreditch et. Nihil
+                    anim keffiyeh helvetica, craft beer labore wes anderson cred
+                    nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                    vice lomo. Leggings occaecat craft beer farm-to-table, raw
+                    denim aesthetic synth nesciunt you probably haven't heard of
+                    them accusamus labore sustainable VHS.
+                  </p>
+                  <p>Due Date: 21-05-2021</p>
+                  <p>Status: To-Do</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- first columns todo list ends here -->
+        </div>
+        <div class="col-sm border">
+          <!-- second column inprogress list starts here  -->
+          <div id="accordion">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button
+                    class="btn btn-link"
+                    data-toggle="collapse"
+                    data-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    Task #1
+                  </button>
+                </h5>
+              </div>
+
+              <div
+                id="collapseOne"
+                class="collapse show"
+                aria-labelledby="headingOne"
+                data-parent="#accordion"
+              >
+                <div class="card-body">
+                  <h5>Assigned To: Name1</h5>
+                  <p>
+                    Task Description: Anim pariatur cliche reprehenderit, enim
+                    eiusmod high life accusamus terry richardson ad squid. 3
+                    wolf moon officia aute, non cupidatat skateboard dolor
+                    brunch. Food truck quinoa nesciunt laborum eiusmod.
+                  </p>
+                  <p>Due Date: 21-05-2021</p>
+                  <p>Status:In-progress</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                  <button
+                    class="btn btn-link collapsed"
+                    data-toggle="collapse"
+                    data-target="#collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo"
+                  >
+                    Task #2
+                  </button>
+                </h5>
+              </div>
+              <div
+                id="collapseTwo"
+                class="collapse"
+                aria-labelledby="headingTwo"
+                data-parent="#accordion"
+              >
+                <div class="card-body">
+                  <h5>Assigned To: Name1</h5>
+                  <p>
+                    Task Description: Anim pariatur cliche reprehenderit, enim
+                    eiusmod high life accusamus terry richardson ad squid. 3
+                    wolf moon officia aute, non cupidatat skateboard dolor
+                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+                    wolf moon tempor, sunt aliqua put a bird on it squid
+                    single-origin coffee nulla assumenda shoreditch et. Nihil
+                    anim keffiyeh helvetica, craft beer labore wes anderson cred
+                    nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                    vice lomo. Leggings occaecat craft beer farm-to-table, raw
+                    denim aesthetic synth nesciunt you probably haven't heard of
+                    them accusamus labore sustainable VHS.
+                  </p>
+                  <p>Due Date: 21-05-2021</p>
+                  <p>Status: TO-do</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                  <button
+                    class="btn btn-link collapsed"
+                    data-toggle="collapse"
+                    data-target="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
+                    Task #3
+                  </button>
+                </h5>
+              </div>
+              <div
+                id="collapseThree"
+                class="collapse"
+                aria-labelledby="headingThree"
+                data-parent="#accordion"
+              >
+                <div class="card-body">
+                  <h5>Assigned To: Name1</h5>
+                  <p>
+                    Task Description: Anim pariatur cliche reprehenderit, enim
+                    eiusmod high life accusamus terry richardson ad squid. 3
+                    wolf moon officia aute, non cupidatat skateboard dolor
+                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+                    wolf moon tempor, sunt aliqua put a bird on it squid
+                    single-origin coffee nulla assumenda shoreditch et. Nihil
+                    anim keffiyeh helvetica, craft beer labore wes anderson cred
+                    nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                    vice lomo. Leggings occaecat craft beer farm-to-table, raw
+                    denim aesthetic synth nesciunt you probably haven't heard of
+                    them accusamus labore sustainable VHS.
+                  </p>
+                  <p>Due Date: 21-05-2021</p>
+                  <p>Status: To-Do</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- second column inprogress list ends here  -->
+        </div>
+        <div class="col-sm border">
+          <!-- third column done list starts here  -->
+          <div id="accordion">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button
+                    class="btn btn-link"
+                    data-toggle="collapse"
+                    data-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    Task #1
+                  </button>
+                </h5>
+              </div>
+
+              <div
+                id="collapseOne"
+                class="collapse show"
+                aria-labelledby="headingOne"
+                data-parent="#accordion"
+              >
+                <div class="card-body">
+                  <h5>Assigned To: Name1</h5>
+                  <p>
+                    Task Description: Anim pariatur cliche reprehenderit, enim
+                    eiusmod high life accusamus terry richardson ad squid. 3
+                    wolf moon officia aute, non cupidatat skateboard dolor
+                    brunch. Food truck quinoa nesciunt laborum eiusmod.
+                  </p>
+                  <p>Due Date: 21-05-2021</p>
+                  <p>Status:Done</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                  <button
+                    class="btn btn-link collapsed"
+                    data-toggle="collapse"
+                    data-target="#collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo"
+                  >
+                    Task #2
+                  </button>
+                </h5>
+              </div>
+              <div
+                id="collapseTwo"
+                class="collapse"
+                aria-labelledby="headingTwo"
+                data-parent="#accordion"
+              >
+                <div class="card-body">
+                  <h5>Assigned To: Name1</h5>
+                  <p>
+                    Task Description: Anim pariatur cliche reprehenderit, enim
+                    eiusmod high life accusamus terry richardson ad squid. 3
+                    wolf moon officia aute, non cupidatat skateboard dolor
+                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+                    wolf moon tempor, sunt aliqua put a bird on it squid
+                    single-origin coffee nulla assumenda shoreditch et. Nihil
+                    anim keffiyeh helvetica, craft beer labore wes anderson cred
+                    nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                    vice lomo. Leggings occaecat craft beer farm-to-table, raw
+                    denim aesthetic synth nesciunt you probably haven't heard of
+                    them accusamus labore sustainable VHS.
+                  </p>
+                  <p>Due Date: 21-05-2021</p>
+                  <p>Status: TO-do</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                  <button
+                    class="btn btn-link collapsed"
+                    data-toggle="collapse"
+                    data-target="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
+                    Task #3
+                  </button>
+                </h5>
+              </div>
+              <div
+                id="collapseThree"
+                class="collapse"
+                aria-labelledby="headingThree"
+                data-parent="#accordion"
+              >
+                <div class="card-body">
+                  <h5>Assigned To: Name1</h5>
+                  <p>
+                    Task Description: Anim pariatur cliche reprehenderit, enim
+                    eiusmod high life accusamus terry richardson ad squid. 3
+                    wolf moon officia aute, non cupidatat skateboard dolor
+                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+                    wolf moon tempor, sunt aliqua put a bird on it squid
+                    single-origin coffee nulla assumenda shoreditch et. Nihil
+                    anim keffiyeh helvetica, craft beer labore wes anderson cred
+                    nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                    vice lomo. Leggings occaecat craft beer farm-to-table, raw
+                    denim aesthetic synth nesciunt you probably haven't heard of
+                    them accusamus labore sustainable VHS.
+                  </p>
+                  <p>Due Date: 21-05-2021</p>
+                  <p>Status: To-Do</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- third column done list ends here  -->
+        </div>
+      </div>
+
+      <!-- list group ends here  -->
+      <!-- body ends here  -->
+      <!-- footer starts here  -->
+      <footer class="text-center fixed-bottom text-white bg-dark">
+        <div class="col-sm">Copyrights 2021. All reserved.</div>
+      </footer>
+      <!-- footer ends here  -->
+    </div>
+  </body>
 </html>
