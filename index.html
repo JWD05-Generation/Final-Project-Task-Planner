@@ -19,9 +19,10 @@
     <!-- font links  -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,100&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
       rel="stylesheet"
     />
+
     <title>Task Planner</title>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -75,7 +76,8 @@
               class="btn btn-secondary"
               data-toggle="modal"
               data-target="#exampleModal"
-            >Add Task
+            >
+              Add Task
             </button>
 
             <!-- Modal -->
@@ -87,10 +89,13 @@
               aria-labelledby="exampleModalLabel"
               aria-hidden="true"
             >
-              <div class="modal-dialog " role="document">
+              <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                  <div class="modal-header ">
-                    <h5 class="modal-title font-weight-bold" id="exampleModalLabel">
+                  <div class="modal-header">
+                    <h5
+                      class="modal-title font-weight-bold"
+                      id="exampleModalLabel"
+                    >
                       Add New Task
                     </h5>
                     <button
@@ -102,11 +107,11 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
-                  <div class="modal-body modelbodycolor ">
+                  <div class="modal-body modelbodycolor">
                     <!-- model body starts here  -->
 
                     <form method="post ">
-                      <div class="form-group  ">
+                      <div class="form-group">
                         <label for="taskName ">Task Name</label>
                         <input
                           type="text"
@@ -186,11 +191,8 @@
                   </div>
                   <div class="modal-footer">
                     <div class="panel panel-footer">
-            <small>&copy; Task Planner</small>
-          </div>
-
-                   
-
+                      <small>&copy; Task Planner</small>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -204,8 +206,8 @@
       <!-- header ends here  -->
       <!-- body starts here  -->
       <!-- this is header  -->
-      <div class="row border header">
-        <div class="col-sm border bgcolor-todo">
+      <div class="row header">
+        <div class="col-sm bgcolor-todo">
           <img
             class="imgsmily align-center"
             src="./images/todosmily-removebg.png"
@@ -213,15 +215,23 @@
           />
           To-Do
         </div>
-        <div class="col-sm border bgcolor-inprogress">
+        <div class="col-sm bgcolor-inprogress">
           <img
             class="imgsmily align-center"
             src="./images/inprogresssmily1.jpg-removebg.png"
             alt="to do smily"
           />
-          In-progress
+          In-Progress
         </div>
-        <div class="col-sm border bgcolor-done">
+        <div class="col-sm bgcolor-review">
+          <img
+            class="imgsmily align-center"
+            src="./images/inreview.png"
+            alt="to do smily"
+          />
+          In-Review
+        </div>
+        <div class="col-sm bgcolor-done">
           <img
             class="imgsmily align-center"
             src="./images/donesimly2-removebg.png"
@@ -231,12 +241,12 @@
         </div>
       </div>
       <!-- list group start here  -->
-      <div class="row border header">
-        <div class="col-sm border">
+      <div class="row header">
+        <div class="col-sm bgcolumn-todo">
           <!-- first columns todo list starts here  -->
 
           <div id="accordion1" class="accordion">
-            <div class="card">
+            <div class="card mycardclass">
               <div class="card-header" id="heading1colOne">
                 <h5 class="mb-0">
                   <button
@@ -246,7 +256,7 @@
                     aria-expanded="true"
                     aria-controls="collapse1colOne"
                   >
-                    Task Name1
+                    Task Name 1
                   </button>
                 </h5>
               </div>
@@ -268,7 +278,7 @@
                 </div>
               </div>
             </div>
-            <div class="card">
+            <div class="card mycardclass">
               <div class="card-header" id="heading1colTwo">
                 <h5 class="mb-0">
                   <button
@@ -299,7 +309,7 @@
                 </div>
               </div>
             </div>
-            <div class="card">
+            <div class="card mycardclass">
               <div class="card-header" id="heading1colThree">
                 <h5 class="mb-0">
                   <button
@@ -334,10 +344,10 @@
 
           <!-- first columns todo list ends here -->
         </div>
-        <div class="col-sm border">
+        <div class="col-sm bgcolumn-inprogress">
           <!-- second column inprogress list starts here  -->
           <div id="accordion2" class="Accordion">
-            <div class="card">
+            <div class="card mycardclass">
               <div class="card-header" id="heading2colOne">
                 <h5 class="mb-0">
                   <button
@@ -369,7 +379,7 @@
                 </div>
               </div>
             </div>
-            <div class="card">
+            <div class="card mycardclass">
               <div class="card-header" id="heading2colTwo">
                 <h5 class="mb-0">
                   <button
@@ -396,11 +406,11 @@
                     eiusmod high life accusamus terry richardson ad squid.
                   </p>
                   <p>Due Date: 21-05-2021</p>
-                  <p>Status: TO-do</p>
+                  <p>Status: In-progress </p>
                 </div>
               </div>
             </div>
-            <div class="card">
+            <div class="card mycardclass">
               <div class="card-header" id="heading2colThree">
                 <h5 class="mb-0">
                   <button
@@ -427,7 +437,7 @@
                     eiusmod high life accusamus terry richardson ad squid.
                   </p>
                   <p>Due Date: 21-05-2021</p>
-                  <p>Status: To-Do</p>
+                  <p>Status: In-Progress</p>
                 </div>
               </div>
             </div>
@@ -435,10 +445,10 @@
 
           <!-- second column inprogress list ends here  -->
         </div>
-        <div class="col-sm border">
+        <div class="col-sm bgcolumn-review">
           <!-- third column done list starts here  -->
           <div id="accordion3" class="Accordion">
-            <div class="card">
+            <div class="card mycardclass">
               <div class="card-header" id="heading3colOne">
                 <h5 class="mb-0">
                   <button
@@ -466,11 +476,11 @@
                     eiusmod high life accusamus terry richardson ad squid.
                   </p>
                   <p>Due Date: 21-05-2021</p>
-                  <p>Status:Done</p>
+                  <p>Status:In-review</p>
                 </div>
               </div>
             </div>
-            <div class="card">
+            <div class="card mycardclass">
               <div class="card-header" id="heading3colTwo">
                 <h5 class="mb-0">
                   <button
@@ -497,11 +507,11 @@
                     eiusmod high life accusamus terry richardson ad squid.
                   </p>
                   <p>Due Date: 21-05-2021</p>
-                  <p>Status: TO-do</p>
+                  <p>Status: In-review</p>
                 </div>
               </div>
             </div>
-            <div class="card">
+            <div class="card mycardclass">
               <div class="card-header" id="heading3colThree">
                 <h5 class="mb-0">
                   <button
@@ -528,7 +538,7 @@
                     eiusmod high life accusamus terry richardson ad squid.
                   </p>
                   <p>Due Date: 21-05-2021</p>
-                  <p>Status: To-Do</p>
+                  <p>Status: In-review</p>
                 </div>
               </div>
             </div>
@@ -536,6 +546,107 @@
 
           <!-- third column done list ends here  -->
         </div>
+        <!-- four th column starts  -->
+        <div class="col-sm bgcolumn-done">
+          <div id="accordion4" class="Accordion">
+            <div class="card mycardclass">
+              <div class="card-header" id="heading4colOne">
+                <h5 class="mb-0">
+                  <button
+                    class="btn btn-link collapsed"
+                    data-toggle="collapse"
+                    data-target="#collapse4colOne"
+                    aria-expanded="true"
+                    aria-controls="collapse4colOne"
+                  >
+                    Task Name 
+                  </button>
+                </h5>
+              </div>
+
+              <div
+                id="collapse4colOne"
+                class="collapse show"
+                aria-labelledby="heading4colOne"
+                data-parent="#accordion4"
+              >
+                <div class="card-body">
+                  <h5>Assigned To: dharani</h5>
+                  <p>
+                    Task Description: Anim pariatur cliche reprehenderit, enim
+                    eiusmod high life accusamus terry richardson ad squid.
+                  </p>
+                  <p>Due Date: 21-05-2021</p>
+                  <p>Status:Done</p>
+                </div>
+              </div>
+            </div>
+            <div class="card mycardclass">
+              <div class="card-header" id="heading4colTwo">
+                <h5 class="mb-0">
+                  <button
+                    class="btn btn-link collapsed"
+                    data-toggle="collapse"
+                    data-target="#collapse4colTwo"
+                    aria-expanded="false"
+                    aria-controls="collapse4colTwo"
+                  >
+                    Task Name 
+                  </button>
+                </h5>
+              </div>
+              <div
+                id="collapse4colTwo"
+                class="collapse"
+                aria-labelledby="heading4colTwo"
+                data-parent="#accordion4"
+              >
+                <div class="card-body">
+                  <h5>Assigned To: Name1</h5>
+                  <p>
+                    Task Description: Anim pariatur cliche reprehenderit, enim
+                    eiusmod high life accusamus terry richardson ad squid.
+                  </p>
+                  <p>Due Date: 21-05-2021</p>
+                  <p>Status: Done</p>
+                </div>
+              </div>
+            </div>
+            <div class="card mycardclass">
+              <div class="card-header" id="heading4colThree">
+                <h5 class="mb-0">
+                  <button
+                    class="btn btn-link collapsed"
+                    data-toggle="collapse"
+                    data-target="#collapse4colThree"
+                    aria-expanded="false"
+                    aria-controls="collapse4colThree"
+                  >
+                    Task Name 
+                  </button>
+                </h5>
+              </div>
+              <div
+                id="collapse4colThree"
+                class="collapse"
+                aria-labelledby="heading4colThree"
+                data-parent="#accordion4"
+              >
+                <div class="card-body">
+                  <h5>Assigned To: Name1</h5>
+                  <p>
+                    Task Description: Anim pariatur cliche reprehenderit, enim
+                    eiusmod high life accusamus terry richardson ad squid.
+                  </p>
+                  <p>Due Date: 21-05-2021</p>
+                  <p>Status: Done</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- four th column ends here  -->
       </div>
 
       <!-- list group ends here  -->
