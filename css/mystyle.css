@@ -72,7 +72,9 @@ img {
   border-left: 5px solid rgba(22, 20, 19, 0.74);
   margin-bottom: 12px;
   box-shadow: 5px 5px 5px rgba(17, 9, 5, 0.589);
-
+}
+.card-header:hover {
+    background-color: rgba(168, 159, 159, 0.473);
 }
 .buttonclass{
     box-shadow: 5px 5px 5px rgba(17, 9, 5, 0.589);
