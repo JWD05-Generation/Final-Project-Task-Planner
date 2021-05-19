@@ -1,25 +1,66 @@
-body{
-    background-color: rgba(248, 218, 201, 0.452);
-    font-family: 'Roboto', sans-serif;
+body {
+  background-color: rgba(248, 218, 201, 0.452);
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 img {
-    border-image: 2px solid black;
+  border-image: 2px solid black;
   height: 130px;
   width: 130px;
 }
-.bgcolor-todo{
-    background-color: rgba(255, 142, 77, 0.74);
+.bgcolor-todo {
+  background-color: rgba(250, 176, 139, 0.562);
 }
-.bgcolor-inprogress{
-    background-color: rgba(92, 225, 230, 0.781);
+.bgcolor-inprogress {
+  background-color: rgba(48, 230, 236, 0.342);
 }
-.bgcolor-done{
-    background-color: rgba(0, 128, 53, 0.712);
+.bgcolor-review {
+  background-color: rgba(219, 44, 235, 0.418);
 }
-.imgsmily{
-    height: 40px;
-    width: 50px;
+
+.bgcolor-done {
+  background-color: rgba(64, 235, 135, 0.418);
 }
-.modelbodycolor{
-     background-color: rgba(248, 218, 201, 0.452);
+
+.bgcolumn-todo {
+  background-color: rgba(243, 163, 123, 0.74);
+}
+.bgcolumn-inprogress {
+  background-color: rgba(17, 221, 228, 0.555);
+}
+.bgcolumn-review {
+  background-color: rgba(219, 44, 235, 0.692);
+}
+.bgcolumn-done {
+  background-color: rgba(64, 235, 135, 0.884);
+}
+.imgsmily {
+  height: 40px;
+  width: 50px;
+}
+.modelbodycolor {
+  background-color: rgba(248, 218, 201, 0.452);
+}
+.bgcolor-done,
+.bgcolor-inprogress,
+.bgcolor-review,
+.bgcolor-todo {
+  border-top-right-radius: 100px 50px;
+  border-bottom-right-radius: 100px 50px;
+  background-clip: content-box;
+  padding: 0px;
+  margin: 10px;
+  font-weight:900;
+}
+.bgcolumn-todo,
+.bgcolumn-inprogress,
+.bgcolumn-review,
+.bgcolumn-done {
+  padding-top: 15px;
+  padding-bottom: 10px;
+  margin-top: 30px;
+}
+.mycardclass {
+  border-left: 5px solid rgba(22, 20, 19, 0.74);
+  margin-bottom: 10px;
 }
