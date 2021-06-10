@@ -1,33 +1,33 @@
 const taskmanager = new TaskManager(0);
-console.log(taskmanager.task.length);
+console.log(taskmanager.task);
 
-// this is sample data for task list items
-const tasklst = [
-  {
-    id: 0,
-    name: "taskname1",
-    description: "task description",
-    assignedTo: "dharani1",
-    dueDate: "21/05/2021",
-    status: "todo",
-  },
-  {
-    id: 2,
-    name: "taskname2",
-    description: "task description2",
-    assignedTo: "dharani2",
-    dueDate: "1/07/2021",
-    status: "inprogress",
-  },
-  {
-    id: 3,
-    name: "taskname3",
-    description: "task description3",
-    assignedTo: "dharani3",
-    dueDate: "27/08/2021",
-    status: "todo",
-  },
-];
+// // this is sample data for task list items
+// const tasklst = [
+//   {
+//     id: 0,
+//     name: "taskname1",
+//     description: "task description",
+//     assignedTo: "dharani1",
+//     dueDate: "21/05/2021",
+//     status: "done",
+//   },
+//   {
+//     id: 2,
+//     name: "taskname2",
+//     description: "task description2",
+//     assignedTo: "dharani2",
+//     dueDate: "1/07/2021",
+//     status: "inprogress",
+//   },
+//   {
+//     id: 3,
+//     name: "taskname3",
+//     description: "task description3",
+//     assignedTo: "dharani3",
+//     dueDate: "27/08/2021",
+//     status: "todo",
+//   },
+// ];
 // for (let i = 0; i < tasklst.length; i++) {
 //   taskmanager.addTask(
 //     tasklst[i].name,
@@ -46,11 +46,11 @@ const addToTaskLst = () => {
   let tastDueDate = document.getElementById("idDate").value;
   let tastStatus = document.getElementById("idStatus");
   let tastStatusValue = tastStatus.options[tastStatus.selectedIndex].value;
-//   console.log(tastName);
-//   console.log(tastDesc);
-//   console.log(tastAssign);
-//   console.log(tastDueDate);
-//   console.log(tastStatusValue);
+  console.log(tastName);
+  console.log(tastDesc);
+  console.log(tastAssign);
+  console.log(tastDueDate);
+  console.log(tastStatusValue);
   taskmanager.addTask(
     tastName,
     tastDesc,
