@@ -110,50 +110,72 @@
                   <div class="modal-body modelbodycolor">
                     <!-- model body starts here  -->
 
-                    <form method="post ">
+                    <form method="post" id="mainform">
                       <div class="form-group">
                         <label for="taskName ">Task Name</label>
+                       <span id="errMsg"></span>  
                         <input
                           type="text"
                           class="form-control"
                           id="taskName"
                           placeholder="Task Name"
                         />
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Please provide a valid name.
+                        </div>
                       </div>
                       <br />
                       <div class="form-group">
                         <label for="taskDescription">Task Description</label>
+                        <span id="errMsg"></span>  
                         <input
                           type="text"
                           class="form-control"
                           id="taskDescription"
                           placeholder="Task Description"
                         />
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Please provide a valid name.
+                        </div>
                       </div>
                       <br />
                       <div class="form-group">
                         <label for="assignedTo">Assigned To</label>
-                        <select id="assignedTo" class="form-control">
-                          <option selected>Choose..</option>
-                          <option>Dharani</option>
-                          <option>Dhakshi</option>
-                        </select>
+                        <span id="errMsg"></span>  
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="assignedTo"
+                          placeholder="Task Assigned To"
+                        />
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Please provide a valid name.
+                        </div>
                       </div>
                       <br />
                       <div class="form-group">
                         <!-- Date input -->
                         <label class="control-label" for="date">Due Date</label>
-
+                        <span id="errMsg"></span>  
                         <input
                           type="date"
                           class="form-control"
+                          id="date"
                           name="birtdate"
                           placeholder="MM/DD/YYY"
                         />
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Please provide a valid name.
+                        </div>
                       </div>
                       <br />
                       <div class="form-group">
                         <label for="status">Status</label>
+                        <span id="errMsg"></span>  
                         <select id="status" class="form-control">
                           <option selected>Choose...</option>
                           <option>ToDo</option>
@@ -161,14 +183,20 @@
                           <option>Review</option>
                           <option>Done</option>
                         </select>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Please provide a valid name.
+                        </div>
                       </div>
                       <br />
                       <div class="form-group text-center">
+                       
                         <input
                           type="submit"
                           class="btn btn-secondary btn-lg"
                           value="Add Task"
                           data-dismiss="modal"
+                          id="btnsubmit"
                         />
 
                         <input
@@ -176,7 +204,8 @@
                           class="btn btn-secondary btn-lg"
                           value="Clear"
                           data-dismiss="modal"
-                        />
+                          id="btnclear"
+                          />
 
                         <input
                           type="submit"
@@ -659,5 +688,6 @@
       </footer>
       <!-- footer ends here  -->
     </div>
+    <script type="text/javascript" src="./js/index.js"></script>
   </body>
 </html>
