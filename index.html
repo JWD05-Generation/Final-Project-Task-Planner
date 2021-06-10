@@ -110,62 +110,99 @@
                   <div class="modal-body modelbodycolor">
                     <!-- model body starts here  -->
 
-                    <form method="post ">
+                    <form method="post" id="mainform">
                       <div class="form-group">
                         <label for="taskName ">Task Name</label>
+                       <span id="errMsg"></span>  
                         <input
                           type="text"
                           class="form-control"
                           id="taskName"
                           placeholder="Task Name"
-                        ></input>
-                      </div>
+
+                        />
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Please provide a valid name.
+                        </div>
+
+                       
                       <br />
                       <div class="form-group">
                         <label for="taskDescription">Task Description</label>
+                        <span id="errMsg"></span>  
                         <input
                           type="text"
                           class="form-control"
                           id="taskDescription"
                           placeholder="Task Description"
                         />
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Please provide a valid name.
+                        </div>
                       </div>
                       <br />
                       <div class="form-group">
                         <label for="assignedTo">Assigned To</label>
-                        <input type="text" id="idAssignedTo" class="form-control" placeholder="Assign Task To "/>
+                  
+                        
+                      <input type="text" id="idAssignedTo" class="form-control" placeholder="Assign Task To "/>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Please provide a valid name.
+                        </div>
+
                       </div>
                       <br />
                       <div class="form-group">
                         <!-- Date input -->
                         <label class="control-label" for="date">Due Date</label>
-
+                        <span id="errMsg"></span>  
                         <input
                           type="date"
                           class="form-control"
+                          id="date"
                           name="birtdate"
                           placeholder="MM/DD/YYY"
                           id="idDate"
                         />
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Please provide a valid name.
+                        </div>
                       </div>
                       <br />
                       <div class="form-group">
                         <label for="status">Status</label>
+                       
+
                         <select id="idStatus" class="form-control">
+
                           <option selected>Choose...</option>
                           <option value="todo">ToDo</option>
                           <option value="inprogress">In-Progress</option>
                           <option value="inreview">Review</option>
                           <option value="done">Done</option>
                         </select>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Please provide a valid name.
+                        </div>
                       </div>
                       <br />
                       <div class="form-group text-center">
+
+                       
+                     
+
                         <input id="idAddTask"
+
                           type="submit"
                           class="btn btn-secondary btn-lg"
                           value="Add Task"
                           data-dismiss="modal"
+                          id="btnsubmit"
                         />
 
                         <input
@@ -173,7 +210,8 @@
                           class="btn btn-secondary btn-lg"
                           value="Clear"
                           data-dismiss="modal"
-                        />
+                          id="btnclear"
+                          />
 
                         <input
                           type="submit"
@@ -276,8 +314,11 @@
       </footer>
       <!-- footer ends here  -->
     </div>
+
+    <script type="text/javascript" src="./js/index.js"></script>
     <script type="text/javascript" src="./Javascript/TaskManager.js"></script>
     <script type="text/javascript" src="./Javascript/index.js"></script>
    
+
   </body>
 </html>
