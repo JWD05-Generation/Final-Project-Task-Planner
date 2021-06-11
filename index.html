@@ -110,7 +110,7 @@
                   <div class="modal-body modelbodycolor">
                     <!-- model body starts here  -->
 
-                    <form method="post ">
+                    <form method="post" id="mainform">
                       <div class="form-group">
                         <label for="taskName ">Task Name</label>
                         <input
@@ -133,21 +133,25 @@
                           id="taskDescription"
                           placeholder="Task Description"
                         />
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Please provide a valid name.
+                        </div>
                       </div>
                       <br />
                       <div class="form-group">
 
                         <label for="idassignedTo">Assigned To</label>
-
-                        
-
-                        <input type="text" id="idAssignedTo" class="form-control" placeholder="Assign Task To "/>
+                       <input type="text" id="idAssignedTo" class="form-control" placeholder="Assign Task To "/>
+                       <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Please provide a valid name.
+                        </div>
                       </div>
                       <br />
                       <div class="form-group">
                         <!-- Date input -->
                         <label class="control-label" for="date">Due Date</label>
-
                         <input
                           type="date"
                           class="form-control"
@@ -155,6 +159,10 @@
                           placeholder="MM/DD/YYY"
                           id="idDate"
                         />
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Please provide a valid name.
+                        </div>
                       </div>
                       <br />
                       <div class="form-group">
@@ -166,6 +174,10 @@
                           <option value="inreview">Review</option>
                           <option value="done">Done</option>
                         </select>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Please provide a valid name.
+                        </div>
                       </div>
                       <br />
                       <div class="form-group text-center">
@@ -189,7 +201,7 @@
                         class="btn btn-secondary btn-lg"
                         value="Cancel"
                         data-dismiss="modal"
-                        id="btncancel">
+                        id="btncancel"
                         />
 
                       </div>
