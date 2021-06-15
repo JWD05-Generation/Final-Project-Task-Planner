@@ -189,6 +189,8 @@ clearFormValues=()=>{
   idAssignedTo.value = "";
   idDate.value = "";
   idStatus.selectedIndex = 0;
+  document.querySelector('#exampleModalLabel').innerHTML="Add New Task";
+  document.querySelector('#btnAddTask').value="Add Task";
   // console.log("in clear form "+idStatus.options[idStatus.selectedIndex].value);
   idTaskName.classList.remove("is-valid");
   idTaskName.classList.remove("is-invalid");
@@ -216,6 +218,8 @@ const clearHTML=()=>{
 
 function editingDataModel(taskID) {
   console.log("in open Data model: currentid: "+taskID);
+  document.querySelector('#exampleModalLabel').innerHTML="Update Task";
+  document.querySelector('#btnAddTask').value="Update";
  $('#openDataModel').trigger('click');
  console.log( );
  let currendTask = [];
