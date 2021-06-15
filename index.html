@@ -76,6 +76,7 @@
               class="btn btn-secondary buttonclass"
               data-toggle="modal"
               data-target="#exampleModal"
+              id="openDataModel"
             >
               Add Task
             </button>
@@ -111,6 +112,12 @@
                     <!-- model body starts here  -->
 
                     <form method="post" id="mainform">
+                      <input
+                      type="hidden"
+                      class="form-control"
+                      id="taskId"
+                     value="-1"
+                    ></input>
                       <div class="form-group">
                         <label for="idTaskName ">Task Name</label>
                         <input

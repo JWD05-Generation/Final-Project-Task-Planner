@@ -7,6 +7,7 @@ const btnAddTask = document.querySelector("#btnAddTask");
 // const btncancel = document.querySelector("#btncancel");
 var fail = 0;
 
+const taskId=document.querySelector("#taskId");
 const idTaskName = document.querySelector("#idTaskName");
 const idTaskDescription = document.querySelector("#idTaskDescription");
 const idAssignedTo = document.querySelector("#idAssignedTo");
@@ -82,7 +83,7 @@ function validationFields(){
     idStatus.classList.remove("is-valid");
     fail++;
   }
-  console.log("fail value in mainframe:"+fail);
+  // console.log("fail value in mainframe:"+fail);
   if (fail > 0) {
    // fail = 0;
     return;
@@ -92,26 +93,33 @@ function validationFields(){
 
 //getting values from the form and adding to taskmanager
 const addToTaskLst = () => {
- validationFields();
+
+  console.log("in add taskList"+taskmanager.task);
 if(fail > 0){
-  console.log("fail >0");
+  // console.log("fail >0");
   return;
 }else{
-  console.log("false is fail: "+ fail);
+  // console.log("false is fail: "+ fail);
 
+  console.log("taskid:"+taskId.value);
   console.log(idTaskName.value);
   console.log(idTaskDescription.value);
   console.log(idAssignedTo.value);
   console.log(idDate.value);
   idStatusValue = idStatus.options[idStatus.selectedIndex].value;
   console.log(idStatusValue);
-  taskmanager.addTask(
-    idTaskName.value,
-    idTaskDescription.value,
-    idAssignedTo.value,
-    idDate.value,
-    idStatusValue
-  );
+  if(taskId.value ==="-1" ){
+    taskmanager.addTask(
+      idTaskName.value,
+      idTaskDescription.value,
+      idAssignedTo.value,
+      idDate.value,
+      idStatusValue
+    );
+  } else{
+     taskmanager.updatecurrentTask(taskId.value, idTaskName.value ,idTaskDescription.value,idAssignedTo.value,idDate.value, idStatusValue );
+  }
+ 
   
   addTaskItemsToBody();
   clearFormValues();
@@ -127,6 +135,7 @@ let cardParentDone = document.querySelector("#idDoneCol");
 btnAddTask.addEventListener("click",  (event) => {
   event.preventDefault();
   event.stopPropagation();
+  validationFields();
 addToTaskLst();
 });
 
@@ -141,6 +150,7 @@ function addTodoform(taskitem) {
         <p class="card-text">Assigned To: ${taskitem.assignedTo}</p>
         <p class="card-text">Due Date: ${taskitem.dueDate}</p>
         <p class="card-text">Status: ${taskitem.status}</p>
+        <button value="edit" name="${taskitem.id}" onclick="editingDataModel(${taskitem.id})"> edit</button>
     </div>
     </div>
     `;
@@ -151,6 +161,7 @@ function addTaskItemsToBody() {
   let htmlinProgress="";
   let htmlinReview="";
   let htmlDone="";
+  
   for (let j = 0; j < taskmanager.task.length; j++) {
     console.log("in for loop: " + taskmanager.task[j].status);
     if (taskmanager.task[j].status === "ToDo") {
@@ -172,6 +183,7 @@ function addTaskItemsToBody() {
 
 //Clear input fields in modal
 clearFormValues=()=>{
+  taskId.value="-1";
   idTaskName.value = "";
   idTaskDescription.value = "";
   idAssignedTo.value = "";
@@ -194,5 +206,31 @@ btnClear.addEventListener("click", (event) => {
   clearFormValues();
   event.preventDefault();
   event.stopPropagation(); 
-
 });
+const clearHTML=()=>{
+  cardParentTodo.innerHTML= "";
+  cardParentInProgress.innerHTML ="";
+  cardParentInReview.innerHTML= "";
+  cardParentDone.innerHTML = "";
+}
+
+function editingDataModel(taskID) {
+  console.log("in open Data model: currentid: "+taskID);
+ $('#openDataModel').trigger('click');
+ console.log( );
+ let currendTask = [];
+ currendTask=taskmanager.getValuesPassingID(taskID);
+
+ taskId.value=taskID;
+  idTaskName.value=currendTask[0].name;
+  idTaskDescription.value=currendTask[0].description;
+  idAssignedTo.value=currendTask[0].assignedTo;
+  idDate.value=currendTask[0].dueDate;
+  
+  $("#idStatus").val(currendTask[0].status);
+  idStatusValue = idStatus.options[idStatus.selectedIndex].value;
+  // clearHTML();
+  // addTaskItemsToBody() ;
+  // console.log(taskmanager.task);
+
+}
