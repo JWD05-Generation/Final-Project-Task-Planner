@@ -5,7 +5,7 @@ let mainform = document.querySelector("#mainform");
 const btnclear = document.querySelector("#btnClear");
 const btnAddTask = document.querySelector("#btnAddTask");
 // const btncancel = document.querySelector("#btncancel");
-
+var fail = 0;
 
 const idTaskName = document.querySelector("#idTaskName");
 const idTaskDescription = document.querySelector("#idTaskDescription");
@@ -14,12 +14,17 @@ const idDate = document.querySelector("#idDate");
 // const vaidAssignedTolidateTaskStatus = document.querySelector("#idStatus");
 const idStatus = document.getElementById("idStatus");
   let idStatusValue = idStatus.options[idStatus.selectedIndex].value;
+
+
 mainform.addEventListener("change", (e) => {
 
   e.preventDefault();
   e.stopPropagation();
-  
-  let fail = 0;
+  validationFields();
+
+});
+function validationFields(){
+  fail = 0;
   
   //Form vidAssignedToalidation for Task Name input value is more than 5 characters
   if (idTaskName.value.length > 5) {
@@ -45,6 +50,7 @@ mainform.addEventListener("change", (e) => {
    if (idAssignedTo.value.length > 5) {
     idAssignedTo.classList.add("is-valid");
     idAssignedTo.classList.remove("is-invalid");
+    
   } else {
     idAssignedTo.classList.add("is-invalid");
     idAssignedTo.classList.remove("is-valid");
@@ -57,6 +63,7 @@ mainform.addEventListener("change", (e) => {
     // console.log("if true "+ idDate.value)
     idDate.classList.add("is-valid");
     idDate.classList.remove("is-invalid");
+   
   } else {
     // console.log("false "+ idDate.value)
     idDate.classList.add("is-invalid");
@@ -69,20 +76,29 @@ mainform.addEventListener("change", (e) => {
     if (idStatusValue !== 'Choose...') {
     idStatus.classList.add("is-valid");
     idStatus.classList.remove("is-invalid");
+    
   } else {
     idStatus.classList.add("is-invalid");
     idStatus.classList.remove("is-valid");
     fail++;
   }
-  
+  console.log("fail value in mainframe:"+fail);
   if (fail > 0) {
-    fail = 0;
+   // fail = 0;
     return;
   }
-  });
+}
+ 
 
 //getting values from the form and adding to taskmanager
 const addToTaskLst = () => {
+ validationFields();
+if(fail > 0){
+  console.log("fail >0");
+  return;
+}else{
+  console.log("false is fail: "+ fail);
+
   console.log(idTaskName.value);
   console.log(idTaskDescription.value);
   console.log(idAssignedTo.value);
@@ -100,16 +116,19 @@ const addToTaskLst = () => {
   addTaskItemsToBody();
   clearFormValues();
  
- 
-  //$('#exampleModal').trigger( "click" );
-  // $('#btnClear').trigger("click");
+  $('#exampleModal').trigger( "click" ); // for closing model
+}
 };
 
 let cardParentTodo = document.querySelector("#idToDoCol");
 let cardParentInProgress = document.querySelector("#idInProgCol");
 let cardParentInReview = document.querySelector("#idInReviewCol");
 let cardParentDone = document.querySelector("#idDoneCol");
-btnAddTask.addEventListener("click", addToTaskLst);
+btnAddTask.addEventListener("click",  (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+addToTaskLst();
+});
 
 //creating cards for each task in the taskmanager
 function addTodoform(taskitem) {
@@ -174,7 +193,6 @@ clearFormValues=()=>{
 btnClear.addEventListener("click", (event) => {
   clearFormValues();
   event.preventDefault();
-  event.stopPropagation();
- 
+  event.stopPropagation(); 
 
 });
