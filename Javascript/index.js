@@ -2,127 +2,76 @@ const taskmanager = new TaskManager(0);
 console.log(taskmanager.task);
 
 let mainform = document.querySelector("#mainform");
-const btnclear = document.querySelector("#btnclear");
-// const idAddTask = document.querySelector("#idAddTask");
-const btncancel = document.querySelector("#btncancel");
-const exampleModal = document.getElementById("#exampleModal");
+const btnclear = document.querySelector("#btnClear");
+const btnAddTask = document.querySelector("#btnAddTask");
+// const btncancel = document.querySelector("#btncancel");
 
-const validateTaskName = document.querySelector("#taskName");
-const validateTaskDescription = document.querySelector("#taskDescription");
-const validateTaskAssignedTo = document.querySelector("#idAssignedTo");
-const validateTaskDueDate = document.querySelector("#idDate");
-const validateTaskStatus = document.querySelector("#idStatus");
 
-//Clear input fields in modal
-// btnclear.addEventListener("click", (event) => {
-//   validateTaskName.value = "";
-//   validateTaskDescription.value = "";
-//   validateTaskAssignedTo.value = "";
-//   validateTaskDueDate.value = "";
-//   validateTaskStatus.value = "";
-//   validateTaskName.classList.remove("is-valid");
-//   validateTaskName.classList.remove("is-invalid");
-//   validateTaskDescription.classList.remove("is-valid");
-//   validateTaskDescription.classList.remove("is-invalid");
-//   validateTaskAssignedTo.classList.remove("is-valid");
-//   validateTaskAssignedTo.classList.remove("is-invalid");
-//   validateTaskDueDate.classList.remove("is-valid");
-//   validateTaskDueDate.classList.remove("is-invalid");
-//   validateTaskStatus.classList.remove("is-valid");
-//   validateTaskStatus.classList.remove("is-invalid");
-//   event.preventDefault();
-//   event.stopPropagation();
-// });
-// // this is sample data for task list items
-// const tasklst = [
-//   {
-//     id: 0,
-//     name: "taskname1",
-//     description: "task description",
-//     assignedTo: "dharani1",
-//     dueDate: "21/05/2021",
-//     status: "done",
-//   },
-//   {
-//     id: 2,
-//     name: "taskname2",
-//     description: "task description2",
-//     assignedTo: "dharani2",
-//     dueDate: "1/07/2021",
-//     status: "inprogress",
-//   },
-//   {
-//     id: 3,
-//     name: "taskname3",
-//     description: "task description3",
-//     assignedTo: "dharani3",
-//     dueDate: "27/08/2021",
-//     status: "todo",
-//   },
-// ];
-// for (let i = 0; i < tasklst.length; i++) {
-//   taskmanager.addTask(
-//     tasklst[i].name,
-//     tasklst[i].description,
-//     tasklst[i].assignedTo,
-//     tasklst[i].dueDate,
-//     tasklst[i].status
-//   );
-// }
-mainform.addEventListener("click", (e) => {
+const idTaskName = document.querySelector("#idTaskName");
+const idTaskDescription = document.querySelector("#idTaskDescription");
+const idAssignedTo = document.querySelector("#idAssignedTo");
+const idDate = document.querySelector("#idDate");
+// const vaidAssignedTolidateTaskStatus = document.querySelector("#idStatus");
+const idStatus = document.getElementById("idStatus");
+  let idStatusValue = idStatus.options[idStatus.selectedIndex].value;
+mainform.addEventListener("change", (e) => {
 
   e.preventDefault();
   e.stopPropagation();
   
   let fail = 0;
   
-  //Form validation for Task Name input value is more than 5 characters
-  if (validateTaskName.value.length > 5) {
-    validateTaskName.classList.add("is-valid");
-    validateTaskName.classList.remove("is-invalid");
+  //Form vidAssignedToalidation for Task Name input value is more than 5 characters
+  if (idTaskName.value.length > 5) {
+    idTaskName.classList.add("is-valid");
+    idTaskName.classList.remove("is-invalid");
   } else {
-    validateTaskName.classList.add("is-invalid");
-    validateTaskName.classList.remove("is-valid");
+    idTaskName.classList.add("is-invalid");
+    idTaskName.classList.remove("is-valid");
     fail++;
   }
      
   //Form validation for Task Description input value is more than 5 characters
-  if (validateTaskDescription.value.length > 5) {
-    validateTaskDescription.classList.add("is-valid");
-    validateTaskDescription.classList.remove("is-invalid");
+  if (idTaskDescription.value.length > 5) {
+    idTaskDescription.classList.add("is-valid");
+    idTaskDescription.classList.remove("is-invalid");
   } else {
-    validateTaskDescription.classList.add("is-invalid");
-    validateTaskDescription.classList.remove("is-valid");
+    idTaskDescription.classList.add("is-invalid");
+    idTaskDescription.classList.remove("is-valid");
     fail++;
   }
   
   //Form validation for Assigned To value is more than 5 characters
-  if (validateTaskAssignedTo.value.length > 5) {
-    validateTaskAssignedTo.classList.add("is-valid");
-    validateTaskAssignedTo.classList.remove("is-invalid");
+   if (idAssignedTo.value.length > 5) {
+    idAssignedTo.classList.add("is-valid");
+    idAssignedTo.classList.remove("is-invalid");
   } else {
-    validateTaskAssignedTo.classList.add("is-invalid");
-    validateTaskAssignedTo.classList.remove("is-valid");
+    idAssignedTo.classList.add("is-invalid");
+    idAssignedTo.classList.remove("is-valid");
     fail++;
   }
   
   //Form validation for Task Due Date input value is not empty
-  if (validateTaskDueDate.value) {
-    validateTaskDueDate.classList.add("is-valid");
-    validateTaskDueDate.classList.remove("is-invalid");
+  // console.log("before "+ idDate.value)
+  if (idDate.value !=='') {
+    // console.log("if true "+ idDate.value)
+    idDate.classList.add("is-valid");
+    idDate.classList.remove("is-invalid");
   } else {
-    validateTaskDueDate.classList.add("is-invalid");
-    validateTaskDueDate.classList.remove("is-valid");
+    // console.log("false "+ idDate.value)
+    idDate.classList.add("is-invalid");
+    idDate.classList.remove("is-valid");
     fail++;
   }
   
   //Form validation for Task Status input value is not empty
-  if (validateTaskStatus.value !== 'Choose...' && validateTaskStatus.value !== '') {
-    validateTaskStatus.classList.add("is-valid");
-    validateTaskStatus.classList.remove("is-invalid");
+   idStatusValue = idStatus.options[idStatus.selectedIndex].value;
+    if (idStatusValue !== 'Choose...') {
+    idStatus.classList.add("is-valid");
+    idStatus.classList.remove("is-invalid");
   } else {
-    validateTaskStatus.classList.add("is-invalid");
-    validateTaskStatus.classList.remove("is-valid");
+    idStatus.classList.add("is-invalid");
+    idStatus.classList.remove("is-valid");
     fail++;
   }
   
@@ -131,36 +80,36 @@ mainform.addEventListener("click", (e) => {
     return;
   }
   });
-  
+
 //getting values from the form and adding to taskmanager
 const addToTaskLst = () => {
-  let tastName = document.getElementById("taskName").value;
-  let tastDesc = document.getElementById("taskDescription").value;
-  let tastAssign = document.getElementById("idAssignedTo").value;
-  let tastDueDate = document.getElementById("idDate").value;
-  let tastStatus = document.getElementById("idStatus");
-  let tastStatusValue = tastStatus.options[tastStatus.selectedIndex].value;
-  console.log(tastName);
-  console.log(tastDesc);
-  console.log(tastAssign);
-  console.log(tastDueDate);
-  console.log(tastStatusValue);
+  console.log(idTaskName.value);
+  console.log(idTaskDescription.value);
+  console.log(idAssignedTo.value);
+  console.log(idDate.value);
+  idStatusValue = idStatus.options[idStatus.selectedIndex].value;
+  console.log(idStatusValue);
   taskmanager.addTask(
-    tastName,
-    tastDesc,
-    tastAssign,
-    tastDueDate,
-    tastStatusValue
+    idTaskName.value,
+    idTaskDescription.value,
+    idAssignedTo.value,
+    idDate.value,
+    idStatusValue
   );
+  
   addTaskItemsToBody();
+  clearFormValues();
+ 
+ 
+  //$('#exampleModal').trigger( "click" );
+  // $('#btnClear').trigger("click");
 };
 
-let cardParentTodo = document.querySelector("#idTodod");
-let cardParentInProgress = document.querySelector("#idInProg");
-let cardParentInReview = document.querySelector("#idInReview");
-let cardParentDone = document.querySelector("#idDone");
-let btnaddTask = document.getElementById("idAddTask");
-btnaddTask.addEventListener("click", addToTaskLst);
+let cardParentTodo = document.querySelector("#idToDoCol");
+let cardParentInProgress = document.querySelector("#idInProgCol");
+let cardParentInReview = document.querySelector("#idInReviewCol");
+let cardParentDone = document.querySelector("#idDoneCol");
+btnAddTask.addEventListener("click", addToTaskLst);
 
 //creating cards for each task in the taskmanager
 function addTodoform(taskitem) {
@@ -185,14 +134,14 @@ function addTaskItemsToBody() {
   let htmlDone="";
   for (let j = 0; j < taskmanager.task.length; j++) {
     console.log("in for loop: " + taskmanager.task[j].status);
-    if (taskmanager.task[j].status === "todo") {
+    if (taskmanager.task[j].status === "ToDo") {
       // console.log('for loop list if condition');
       htmlTodo += addTodoform(taskmanager.task[j]);
-    } else if (taskmanager.task[j].status === "inprogress") {
+    } else if (taskmanager.task[j].status === "InProgress") {
       htmlinProgress += addTodoform(taskmanager.task[j]);
-    } else if (taskmanager.task[j].status === "inreview") {
+    } else if (taskmanager.task[j].status === "InReview") {
       htmlinReview += addTodoform(taskmanager.task[j]);
-    } else if (taskmanager.task[j].status === "done") {
+    } else if (taskmanager.task[j].status === "Done") {
       htmlDone += addTodoform(taskmanager.task[j]);
     }
   }
@@ -203,28 +152,29 @@ function addTaskItemsToBody() {
 }
 
 //Clear input fields in modal
-btnclear.addEventListener("click", (event) => {
-  validateTaskName.value = "";
-  validateTaskDescription.value = "";
-  validateTaskAssignedTo.value = "";
-  validateTaskDueDate.value = "";
-  validateTaskStatus.value = "";
-  validateTaskName.classList.remove("is-valid");
-  validateTaskName.classList.remove("is-invalid");
-  validateTaskDescription.classList.remove("is-valid");
-  validateTaskDescription.classList.remove("is-invalid");
-  validateTaskAssignedTo.classList.remove("is-valid");
-  validateTaskAssignedTo.classList.remove("is-invalid");
-  validateTaskDueDate.classList.remove("is-valid");
-  validateTaskDueDate.classList.remove("is-invalid");
-  validateTaskStatus.classList.remove("is-valid");
-  validateTaskStatus.classList.remove("is-invalid");
+clearFormValues=()=>{
+  idTaskName.value = "";
+  idTaskDescription.value = "";
+  idAssignedTo.value = "";
+  idDate.value = "";
+  idStatus.selectedIndex = 0;
+  // console.log("in clear form "+idStatus.options[idStatus.selectedIndex].value);
+  idTaskName.classList.remove("is-valid");
+  idTaskName.classList.remove("is-invalid");
+  idTaskDescription.classList.remove("is-valid");
+  idTaskDescription.classList.remove("is-invalid");
+  idAssignedTo.classList.remove("is-valid");
+  idAssignedTo.classList.remove("is-invalid");
+  idDate.classList.remove("is-valid");
+  idDate.classList.remove("is-invalid");
+  idStatus.classList.remove("is-valid");
+  idStatus.classList.remove("is-invalid");
+}
+
+btnClear.addEventListener("click", (event) => {
+  clearFormValues();
   event.preventDefault();
   event.stopPropagation();
-});
+ 
 
-// btncancel.addEventListener("click", (event) => {
-//       //  if(event.target == exampleModal) {
-//       //   exampleModal.style.display = "none";
-//       //  }
-// });
+});

@@ -112,98 +112,97 @@
 
                     <form method="post" id="mainform">
                       <div class="form-group">
-                        <label for="taskName ">Task Name</label>
+                        <label for="idTaskName ">Task Name</label>
                         <input
                           type="text"
                           class="form-control"
-                          id="taskName"
+                          id="idTaskName"
                           placeholder="Task Name"
                         ></input>
-                        <div class="valid-feedback">Looks good!</div>
+                        <div class="valid-feedback"></div>
                         <div class="invalid-feedback">
-                          Please provide a valid name.
+                          Please Enter Atleast 6 Characters
                         </div>
                       </div>
                       <br />
                       <div class="form-group">
-                        <label for="taskDescription">Task Description</label>
+                        <label for="idTaskDescription">Task Description</label>
                         <input
                           type="text"
                           class="form-control"
-                          id="taskDescription"
+                          id="idTaskDescription"
                           placeholder="Task Description"
                         />
-                        <div class="valid-feedback">Looks good!</div>
+                        <div class="valid-feedback"></div>
                         <div class="invalid-feedback">
-                          Please provide a valid name.
+                          Please Enter Atleast 6 Characters
                         </div>
                       </div>
                       <br />
                       <div class="form-group">
-
-                        <label for="idassignedTo">Assigned To</label>
-                       <input type="text" id="idAssignedTo" class="form-control" placeholder="Assign Task To "/>
-                       <div class="valid-feedback">Looks good!</div>
-                        <div class="invalid-feedback">
-                          Please provide a valid name.
-                        </div>
+                        <label for="idAssignedTo">Assigned To</label>
+                        <input type="text" id="idAssignedTo" class="form-control" placeholder="Assign Task To "/>
+                     
+                      <div class="valid-feedback"></div>
+                      <div class="invalid-feedback">
+                        Please Enter Atleast 6 Characters
                       </div>
+                    </div>
                       <br />
                       <div class="form-group">
                         <!-- Date input -->
-                        <label class="control-label" for="date">Due Date</label>
+                        <label class="control-label"  for="idDate">Due Date</label>
+                        <!--  -->
                         <input
                           type="date"
                           class="form-control"
-                          name="birtdate"
-                          placeholder="MM/DD/YYY"
-                          id="idDate"
+                          name="idDate"
+                          id="idDate" 
                         />
-                        <div class="valid-feedback">Looks good!</div>
+                        <div class="valid-feedback"></div>
                         <div class="invalid-feedback">
-                          Please provide a valid name.
+                          Please Enter a Date
                         </div>
                       </div>
                       <br />
                       <div class="form-group">
-                        <label for="status">Status</label>
+                        <label for="idStatus">Status</label>
                         <select id="idStatus" class="form-control">
-                          <option selected>Choose...</option>
-                          <option value="todo">ToDo</option>
-                          <option value="inprogress">In-Progress</option>
-                          <option value="inreview">Review</option>
-                          <option value="done">Done</option>
+                          <option value="Choose..." selected>Choose...</option>
+                          <option value="ToDo">ToDo</option>
+                          <option value="InProgress">InProgress</option>
+                          <option value="InReview">Review</option>
+                          <option value="Done">Done</option>
                         </select>
-                        <div class="valid-feedback">Looks good!</div>
-                        <div class="invalid-feedback">
-                          Please provide a valid name.
-                        </div>
+                     
+                      <div class="valid-feedback"></div>
+                      <div class="invalid-feedback">
+                        Please select a Status
                       </div>
+                    </div>
                       <br />
                       <div class="form-group text-center">
-                        <input id="idAddTask"
-                          type="submit"
+                        <input id="btnAddTask"
+                          type="button"
                           class="btn btn-secondary btn-lg"
                           value="Add Task"
                           data-dismiss="modal"
                         />
 
-                        <input
-                          type="reset"
+                        <input id="btnClear"
+                          type="button"
                           class="btn btn-secondary btn-lg"
                           value="Clear"
-                          id="btnclear"
                           data-dismiss="modal"
                         />
 
-                        <input
-                        type="submit"
-                        class="btn btn-secondary btn-lg"
-                        value="Cancel"
-                        data-dismiss="modal"
-                        id="btncancel"
-                        />
-
+                        <!-- <input
+                          type="submit"
+                          class="btn btn-secondary btn-lg"
+                          id="btnCancel"
+                          value ="Cancel"
+                          data-dismiss="modal"
+                        /> -->
                       </div>
                     </form>
 
@@ -262,27 +261,27 @@
       </div>
       <!-- list group start here  -->
       <div class="row header">
-        <div class="col-sm bgcolumn-todo" id="idTodod">
+        <div class="col-sm bgcolumn-todo" id="idToDoCol">
           <!-- first columns todo list starts here  -->
 
           
 
           <!-- first columns todo list ends here -->
         </div>
-        <div class="col-sm bgcolumn-inprogress" id="idInProg">
+        <div class="col-sm bgcolumn-inprogress" id="idInProgCol">
           <!-- second column inprogress list starts here  -->
          
 
           <!-- second column inprogress list ends here  -->
         </div>
-        <div class="col-sm bgcolumn-review" id= "idInReview">
+        <div class="col-sm bgcolumn-review" id= "idInReviewCol">
           <!-- third column done list starts here  -->
           
 
           <!-- third column done list ends here  -->
         </div>
         <!-- four th column starts  -->
-        <div class="col-sm bgcolumn-done" id ="idDone">
+        <div class="col-sm bgcolumn-done" id ="idDoneCol">
 
 
         </div>
@@ -299,13 +298,8 @@
       </footer>
       <!-- footer ends here  -->
     </div>
-
-    <!-- <script type="text/javascript" src="./js/index.js"></script> -->
-
-
     <script type="text/javascript" src="./Javascript/TaskManager.js"></script>
     <script type="text/javascript" src="./Javascript/index.js"></script>
    
   </body>
 </html>
-© 2021 GitHub, Inc.
