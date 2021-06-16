@@ -1,3 +1,4 @@
+//creating a class
 class TaskManager {
   //initialise the current value and define task array for maintaining list of tasks
   constructor(currentId = 0) {
@@ -36,12 +37,22 @@ class TaskManager {
       }
     }
   }
-  //update task by passing- id , name, desc, assignedTo, dueDate, status
+  //update task by passing id , name, desc, assignedTo, dueDate, status
   updatecurrentTask(passingID, name, desc, assignedTo, dueDate, status) {
     this.task[passingID].name = name;
     this.task[passingID].description = desc;
     this.task[passingID].assignedTo = assignedTo;
     this.task[passingID].dueDate = dueDate;
     this.task[passingID].status = status;
+  }
+  //delete task by passing id
+  deletecurrentTask(passingID) {
+    //looping over the tasks
+    for (let i = 0; i < this.task.length; i++) {
+      const currentTask = this.task[i];
+      if (currentTask.id === passingID) {
+        this.task.splice(i, 1);
+      }
+    }
   }
 }
