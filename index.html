@@ -22,24 +22,22 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
       rel="stylesheet"
     />
-
     <title>Task Planner</title>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous">
+    </script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
       integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous">
+    </script>
     <script
       src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-
+      crossorigin="anonymous">
+    </script>
     <script></script>
     <noscript>
       <!-- This element will print the given message only when the execution of the  <script> tags does not take place.   -->
@@ -61,26 +59,15 @@
             Welcome to your Task Organiser
           </h2>
         </div>
-        <div class="row">
+      <div class="row">
           <div class="col-sm d-flex justify-content-end align-items-end">
-            <!-- <a
-              href="./updateTask.html"
-              class="btn btn-secondary btn-lg active rounded"
-              role="button"
-              aria-pressed="true">
-              Add Task</a>
-             -->
             <!-- adding model view start  -->
             <button
               type="button"
               class="btn btn-secondary buttonclass"
               data-toggle="modal"
               data-target="#exampleModal"
-              id="openDataModel"
-            >
-              Add Task
-            </button>
-
+              id="openDataModel">Add Task</button>
             <!-- Modal -->
             <div
               class="modal fade"
@@ -88,90 +75,85 @@
               tabindex="-1"
               role="dialog"
               aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
+              aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5
                       class="modal-title font-weight-bold"
-                      id="exampleModalLabel"
-                    >
+                      id="exampleModalLabel">
                       Add New Task
                     </h5>
                     <button
                       type="button"
+                      id="btnClose"
                       class="close"
                       data-dismiss="modal"
-                      aria-label="Close"
-                    >
+                      aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body modelbodycolor">
                     <!-- model body starts here  -->
-
                     <form method="post" id="mainform">
                       <input
-                      type="hidden"
-                      class="form-control"
-                      id="taskId"
-                     value="-1"
-                    ></input>
+                       type="hidden"
+                       class="form-control"
+                       id="taskId"
+                       value="-1">
+                      </input>
                       <div class="form-group">
                         <label for="idTaskName ">Task Name</label>
                         <input
                           type="text"
                           class="form-control"
                           id="idTaskName"
-                          placeholder="Task Name"
-                        ></input>
+                          placeholder="Task Name">
+                        </input>
                         <div class="valid-feedback"></div>
                         <div class="invalid-feedback">
                           Please Enter Atleast 6 Characters
                         </div>
                       </div>
-                      <br />
+                      <br/>
                       <div class="form-group">
                         <label for="idTaskDescription">Task Description</label>
                         <input
                           type="text"
                           class="form-control"
                           id="idTaskDescription"
-                          placeholder="Task Description"
-                        />
+                          placeholder="Task Description">
+                        </input>
                         <div class="valid-feedback"></div>
                         <div class="invalid-feedback">
                           Please Enter Atleast 6 Characters
                         </div>
                       </div>
-                      <br />
+                      <br/>
                       <div class="form-group">
                         <label for="idAssignedTo">Assigned To</label>
                         <input type="text" id="idAssignedTo" class="form-control" placeholder="Assign Task To "/>
-                     
                       <div class="valid-feedback"></div>
                       <div class="invalid-feedback">
                         Please Enter Atleast 6 Characters
                       </div>
                     </div>
-                      <br />
-                      <div class="form-group">
-                        <!-- Date input -->
-                        <label class="control-label"  for="idDate">Due Date</label>
-                        <!--  -->
-                        <input
+                    <br/>
+                    <div class="form-group">
+                      <!-- Date input -->
+                      <label class="control-label"  for="idDate">Due Date</label>
+                      <input
                           type="date"
                           class="form-control"
                           name="idDate"
                           id="idDate" 
                         />
-                        <div class="valid-feedback"></div>
-                        <div class="invalid-feedback">
+                       <div class="valid-feedback"></div>
+                       <div class="invalid-feedback">
                           Please Enter a Date
-                        </div>
-                      </div>
-                      <br />
+                       </div>
+                    </div>
+                    <br/>
                       <div class="form-group">
                         <label for="idStatus">Status</label>
                         <select id="idStatus" class="form-control">
@@ -181,13 +163,12 @@
                           <option value="InReview">Review</option>
                           <option value="Done">Done</option>
                         </select>
-                     
-                      <div class="valid-feedback"></div>
-                      <div class="invalid-feedback">
-                        Please select a Status
+                        <div class="valid-feedback"></div>
+                        <div class="invalid-feedback">
+                         Please select a Status
+                        </div>
                       </div>
-                    </div>
-                      <br />
+                      <br/>
                       <div class="form-group text-center">
                         <input id="btnAddTask"
                           type="submit"
@@ -195,24 +176,14 @@
                           value="Add Task"
                           data-dismiss="modal"
                         />
-
                         <input id="btnClear"
                           type="reset"
                           class="btn btn-secondary btn-lg"
                           value="Clear"
                           data-dismiss="modal"
                         />
-
-                        <!-- <input
-                          type="submit"
-                          class="btn btn-secondary btn-lg"
-                          id="btnCancel"
-                          value ="Cancel"
-                          data-dismiss="modal"
-                        /> -->
                       </div>
                     </form>
-
                     <!-- model body ends here  -->
                   </div>
                   <div class="modal-footer">
@@ -223,11 +194,10 @@
                 </div>
               </div>
             </div>
-
             <!-- ended model view  -->
           </div>
         </div>
-        <!-- -end roe  -->
+        <!-- -end row  -->
       </div>
       <!-- header ends here  -->
       <!-- body starts here  -->
@@ -268,33 +238,19 @@
       </div>
       <!-- list group start here  -->
       <div class="row header">
-        <div class="col-sm bgcolumn-todo" id="idToDoCol">
-          <!-- first columns todo list starts here  -->
-
-          
-
-          <!-- first columns todo list ends here -->
-        </div>
-        <div class="col-sm bgcolumn-inprogress" id="idInProgCol">
-          <!-- second column inprogress list starts here  -->
-         
-
-          <!-- second column inprogress list ends here  -->
-        </div>
-        <div class="col-sm bgcolumn-review" id= "idInReviewCol">
-          <!-- third column done list starts here  -->
-          
-
-          <!-- third column done list ends here  -->
-        </div>
-        <!-- four th column starts  -->
-        <div class="col-sm bgcolumn-done" id ="idDoneCol">
-
-
-        </div>
-        <!-- four th column ends here  -->
+        <!-- first column todo list starts here  -->
+        <div class="col-sm bgcolumn-todo" id="idToDoCol"></div>
+        <!-- first column todo list ends here -->
+        <!-- second column inprogress list starts here  -->
+        <div class="col-sm bgcolumn-inprogress" id="idInProgCol"></div>
+        <!-- second column inprogress list ends here  -->
+         <!-- third column done list starts here  -->
+        <div class="col-sm bgcolumn-review" id= "idInReviewCol"></div>
+        <!-- third column done list ends here  -->
+        <!-- fourth column starts here  -->
+        <div class="col-sm bgcolumn-done" id ="idDoneCol"></div>
+        <!-- fourth column ends here  -->
       </div>
-
       <!-- list group ends here  -->
       <!-- body ends here  -->
       <!-- footer starts here  -->
@@ -307,6 +263,5 @@
     </div>
     <script type="text/javascript" src="./Javascript/TaskManager.js"></script>
     <script type="text/javascript" src="./Javascript/index.js"></script>
-   
   </body>
 </html>
