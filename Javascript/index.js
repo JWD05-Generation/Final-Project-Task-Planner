@@ -1,6 +1,9 @@
 //Initialize new TaskManager with current id set to 0
 const taskmanager = new TaskManager(0);
+taskmanager.load();
 console.log(taskmanager.task);
+
+
 //Select form in the modal
 let mainform = document.querySelector("#mainform");
 //Select buttons
@@ -119,6 +122,7 @@ const addToTaskLst = () => {
     }
     addTaskItemsToBody();
     clearFormValues();
+   
     $("#exampleModal").trigger("click"); // for closing modal
   }
 };
@@ -128,10 +132,12 @@ btnAddTask.addEventListener("click", (event) => {
   event.stopPropagation();
   validationFields();
   addToTaskLst();
+  taskmanager.save();
+  
 });
 //Creating cards for each task in the taskmanager
 const addHtmlForm = (taskitem) => {
-  console.log("in add list");
+  console.log("in addHtmlForm function");
   return `
     <div class="card mycardclass">
     <div class="card-body">
@@ -148,7 +154,7 @@ const addHtmlForm = (taskitem) => {
 };
 //Creating cards for each task "done" in the taskmanager
 const addHtmlFormDone = (taskitem) => {
-  console.log("in add list");
+  console.log("in addHtmlFormDone function");
   return `
     <div class="card mycardclass">
     <div class="card-body">
@@ -186,6 +192,10 @@ function addTaskItemsToBody() {
   cardParentInProgress.innerHTML = htmlinProgress;
   cardParentInReview.innerHTML = htmlinReview;
   cardParentDone.innerHTML = htmlDone;
+}
+//this condition loads data from local storage
+if(taskmanager.task.length >0){
+  addTaskItemsToBody();
 }
 //Clear input fields in modal
 clearFormValues = () => {
