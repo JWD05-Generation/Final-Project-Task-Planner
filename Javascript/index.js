@@ -27,66 +27,113 @@ let cardParentDone = document.querySelector("#idDoneCol");
 var fail = 0;
 
 //Add a 'change' event listener to the form
-mainform.addEventListener("change", (e) => {
-  //Prevent default action
-  e.preventDefault();
-  e.stopPropagation();
-  validationFields();
-});
+// mainform.addEventListener("change", (e) => {
+//   //Prevent default action
+//   e.preventDefault();
+//   e.stopPropagation();
+// });
+
+ //Check Task Name input value has more than 5 characters
+ const validateTaskName = () => {
+ if (idTaskName.value.length > 5) {
+  idTaskName.classList.add("is-valid");
+  idTaskName.classList.remove("is-invalid");
+} else {
+  idTaskName.classList.add("is-invalid");
+  idTaskName.classList.remove("is-valid");
+  fail++;
+}
+};
+//Check Task Description input value has more than 5 characters
+const validateTaskDescription = () => {
+if (idTaskDescription.value.length > 5) {
+  idTaskDescription.classList.add("is-valid");
+  idTaskDescription.classList.remove("is-invalid");
+} else {
+  idTaskDescription.classList.add("is-invalid");
+  idTaskDescription.classList.remove("is-valid");
+  fail++;
+}
+};
+//Check Assigned To value input value has more than 5 characters
+const validateAssignedTo = () => {
+if (idAssignedTo.value.length > 5) {
+  idAssignedTo.classList.add("is-valid");
+  idAssignedTo.classList.remove("is-invalid");
+} else {
+  idAssignedTo.classList.add("is-invalid");
+  idAssignedTo.classList.remove("is-valid");
+  fail++;
+}
+};
+//Function to check due date is greater or equal to today's date
+const dateCheck = () => {
+  const date = new Date(idDate.value);
+  const today = new Date();
+  const formattedToday = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
+  const formattedDate =
+  date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+  console.log(formattedDate);
+  console.log(formattedToday);
+  if (formattedDate >= formattedToday) {
+   return true;
+  }else {
+   return false;
+  }
+}
+//Check Task Due Date input value is not empty
+const validateDate = () => {
+if (dateCheck() && idDate.value !== "") {
+  idDate.classList.add("is-valid");
+  idDate.classList.remove("is-invalid");
+} else {
+  idDate.classList.add("is-invalid");
+  idDate.classList.remove("is-valid");
+  fail++;
+}
+};
+//Check Task Status input value
+const validateTaskStatus = () => {
+idStatusValue = idStatus.options[idStatus.selectedIndex].value;
+if (idStatusValue !== "Choose...") {
+  idStatus.classList.add("is-valid");
+  idStatus.classList.remove("is-invalid");
+} else {
+  idStatus.classList.add("is-invalid");
+  idStatus.classList.remove("is-valid");
+  fail++;
+}
+};
 //Function to validate inpute fields
 const validationFields = () => {
   fail = 0;
-  //Check Task Name input value has more than 5 characters
-  if (idTaskName.value.length > 5) {
-    idTaskName.classList.add("is-valid");
-    idTaskName.classList.remove("is-invalid");
-  } else {
-    idTaskName.classList.add("is-invalid");
-    idTaskName.classList.remove("is-valid");
-    fail++;
-  }
-  //Check Task Description input value has more than 5 characters
-  if (idTaskDescription.value.length > 5) {
-    idTaskDescription.classList.add("is-valid");
-    idTaskDescription.classList.remove("is-invalid");
-  } else {
-    idTaskDescription.classList.add("is-invalid");
-    idTaskDescription.classList.remove("is-valid");
-    fail++;
-  }
-  //Check Assigned To value input value has more than 5 characters
-  if (idAssignedTo.value.length > 5) {
-    idAssignedTo.classList.add("is-valid");
-    idAssignedTo.classList.remove("is-invalid");
-  } else {
-    idAssignedTo.classList.add("is-invalid");
-    idAssignedTo.classList.remove("is-valid");
-    fail++;
-  }
-  //Check Task Due Date input value is not empty
-  if (idDate.value !== "") {
-    idDate.classList.add("is-valid");
-    idDate.classList.remove("is-invalid");
-  } else {
-    idDate.classList.add("is-invalid");
-    idDate.classList.remove("is-valid");
-    fail++;
-  }
-  //Check Task Status input value
-  idStatusValue = idStatus.options[idStatus.selectedIndex].value;
-  if (idStatusValue !== "Choose...") {
-    idStatus.classList.add("is-valid");
-    idStatus.classList.remove("is-invalid");
-  } else {
-    idStatus.classList.add("is-invalid");
-    idStatus.classList.remove("is-valid");
-    fail++;
-  }
+  validateTaskName();
+  validateTaskDescription();
+  validateAssignedTo();
+  dateCheck();
+  validateDate();
+  validateTaskStatus();
   if (fail > 0) {
     // fail = 0;
     return;
   }
 };
+idTaskName.addEventListener("change", ()  => {
+  validateTaskName()
+});
+idTaskDescription.addEventListener("change", ()  =>{
+  validateTaskDescription();
+});
+idAssignedTo.addEventListener("change", ()  =>{
+  validateAssignedTo();
+});
+idDate.addEventListener("change", ()  =>{
+  dateCheck();
+  validateDate();
+});
+idStatus.addEventListener("change", ()  =>{
+  validateTaskStatus();
+});
 //Getting values from the form and adding to taskmanager
 const addToTaskLst = () => {
   console.log("in add taskList" + taskmanager.task);
