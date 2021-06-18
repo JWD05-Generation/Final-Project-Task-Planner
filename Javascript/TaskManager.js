@@ -89,4 +89,20 @@ class TaskManager {
       this.id = Number(currentId);
     }
   }
+  delete(taskId) {
+  //  let getValuesArr=[];
+  //  getValuesArr =this.getValuesPassingID(taskId) 
+  //  const tasksJson = JSON.stringify(getValuesArr);
+  //  if (localStorage.getItem("task")) {
+  //    localStorage.removeItem("task",tasksJson);
+  //  }
+
+    // if (localStorage.getItem("task")) {
+      
+    //   const tasksJson = JSON.stringify(this.task);
+
+    // // Store the JSON string in localStorage
+    // localStorage.setItem("task", tasksJson);
+    // }
+  }
 }

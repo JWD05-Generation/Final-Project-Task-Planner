@@ -3,7 +3,6 @@ const taskmanager = new TaskManager(0);
 taskmanager.load();
 console.log(taskmanager.task);
 
-
 //Select form in the modal
 let mainform = document.querySelector("#mainform");
 //Select buttons
@@ -89,19 +88,19 @@ const validationFields = () => {
 };
 //Getting values from the form and adding to taskmanager
 const addToTaskLst = () => {
-  console.log("in add taskList" + taskmanager.task);
+  // console.log("in add taskList" + taskmanager.task);
   if (fail > 0) {
     // console.log("fail >0");
     return;
   } else {
     // console.log("false is fail: "+ fail);
-    console.log("taskid:" + taskId.value);
-    console.log(idTaskName.value);
-    console.log(idTaskDescription.value);
-    console.log(idAssignedTo.value);
-    console.log(idDate.value);
+    // console.log("taskid:" + taskId.value);
+    // console.log(idTaskName.value);
+    // console.log(idTaskDescription.value);
+    // console.log(idAssignedTo.value);
+    // console.log(idDate.value);
     idStatusValue = idStatus.options[idStatus.selectedIndex].value;
-    console.log(idStatusValue);
+    // console.log(idStatusValue);
     if (taskId.value === "-1") {
       taskmanager.addTask(
         idTaskName.value,
@@ -122,7 +121,7 @@ const addToTaskLst = () => {
     }
     addTaskItemsToBody();
     clearFormValues();
-   
+
     $("#exampleModal").trigger("click"); // for closing modal
   }
 };
@@ -134,10 +133,10 @@ btnAddTask.addEventListener("click", (event) => {
   addToTaskLst();
   taskmanager.save();
   
+  console.log(taskmanager.task);
 });
 //Creating cards for each task in the taskmanager
 const addHtmlForm = (taskitem) => {
-  console.log("in addHtmlForm function");
   return `
     <div class="card mycardclass">
     <div class="card-body">
@@ -154,7 +153,6 @@ const addHtmlForm = (taskitem) => {
 };
 //Creating cards for each task "done" in the taskmanager
 const addHtmlFormDone = (taskitem) => {
-  console.log("in addHtmlFormDone function");
   return `
     <div class="card mycardclass">
     <div class="card-body">
@@ -176,7 +174,7 @@ function addTaskItemsToBody() {
   let htmlDone = "";
 
   for (let j = 0; j < taskmanager.task.length; j++) {
-    console.log("in for loop: " + taskmanager.task[j].status);
+    // console.log("in for loop: " + taskmanager.task[j].status);
     if (taskmanager.task[j].status === "ToDo") {
       // console.log('for loop list if condition');
       htmlTodo += addHtmlForm(taskmanager.task[j]);
@@ -194,7 +192,7 @@ function addTaskItemsToBody() {
   cardParentDone.innerHTML = htmlDone;
 }
 //this condition loads data from local storage
-if(taskmanager.task.length >0){
+if (taskmanager.task.length > 0) {
   addTaskItemsToBody();
 }
 //Clear input fields in modal
@@ -226,17 +224,15 @@ btnClear.addEventListener("click", (event) => {
 });
 //Populating data for edit on modalview
 const editingDataModel = (taskID) => {
-  console.log("in open Data model: currentid: " + taskID);
-
+  // console.log("in open Data model: currentid: " + taskID);
+  //change button name from add task to update , and heading of model to update task
   document.querySelector("#exampleModalLabel").innerHTML = "Update Task";
   document.querySelector("#btnAddTask").value = "Update";
-
+  //open the data model
   $("#openDataModel").trigger("click");
-  console.log();
-
   let currendTask = [];
   currendTask = taskmanager.getValuesPassingID(taskID);
-
+  //assign values to model
   taskId.value = taskID;
   idTaskName.value = currendTask[0].name;
   idTaskDescription.value = currendTask[0].description;
@@ -248,13 +244,14 @@ const editingDataModel = (taskID) => {
 };
 //Function to delete task details onclick of Remove button
 function deletingDataModel(taskID) {
-  console.log("in open Data model: currentid: " + taskID);
+  // console.log("in open Data model: currentid: " + taskID);
 
   taskId.value = taskmanager.deletecurrentTask(taskID);
   taskmanager.deletecurrentTask(taskID);
-
+  taskmanager.save();
   clearFormValues();
   addTaskItemsToBody();
+
   console.log(taskmanager.task);
 }
 //Onclick event modal closes and clearing form
