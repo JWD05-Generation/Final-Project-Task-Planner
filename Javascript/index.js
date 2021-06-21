@@ -69,11 +69,16 @@ if (idAssignedTo.value.length > 5) {
 const dateCheck = () => {
   const date = new Date(idDate.value);
   const today = new Date();
-  const formattedToday = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
-  const formattedDate =
-  date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
-  console.log(formattedDate);
-  console.log(formattedToday);
+  //padstart gives eg: 5 -05 , 12- 12
+  const dateformat= String(date.getDate()).padStart(2, '0');
+  const todaysdateformat =String(today.getDate()).padStart(2, '0');
+  const monthformat= String(date.getMonth() + 1).padStart(2, '0');
+  const todaysmonthformat =String(today.getMonth() + 1).padStart(2, '0');
+  
+  const formattedToday = todaysdateformat + "/" + todaysmonthformat + "/" + today.getFullYear();
+  const formattedDate =  dateformat + "/" + monthformat + "/" + date.getFullYear();  
+  // console.log('formated date'+formattedDate);
+  // console.log('todays date'+formattedToday);
   if (formattedDate >= formattedToday) {
    return true;
   }else {
