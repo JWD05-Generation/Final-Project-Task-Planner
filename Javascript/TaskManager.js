@@ -6,10 +6,10 @@ class TaskManager {
     this.id = currentId;
   }
   //add method to get task and push to task array
-  addTask(name, desc, assignedTo, dueDate, status) {
+  addTask(taskname, desc, assignedTo, dueDate, status) {
     let taskitem = {
       id: this.id++,
-      name: name,
+      name: taskname,
       description: desc,
       assignedTo: assignedTo,
       dueDate: dueDate,
@@ -37,13 +37,23 @@ class TaskManager {
       }
     }
   }
-  //update task by passing id , name, desc, assignedTo, dueDate, status
-  updatecurrentTask(passingID, name, desc, assignedTo, dueDate, status) {
-    this.task[passingID].name = name;
-    this.task[passingID].description = desc;
-    this.task[passingID].assignedTo = assignedTo;
-    this.task[passingID].dueDate = dueDate;
-    this.task[passingID].status = status;
+  //update task by passing id , taskname, desc, assignedTo, dueDate, status
+  updatecurrentTask(passingID, taskname, desc, assignedTo, dueDate, status) {
+      // console.log(this.task);
+    for (let j = 0; j < this.task.length; j++) {
+      console.log("insode j loop");
+      if (this.task[j].id == passingID) {
+        console.log("j value:" + j);
+        // this.task[j].id,
+        this.task[j].name = taskname;
+        this.task[j].description = desc;
+        this.task[j].assignedTo = assignedTo;
+        this.task[j].dueDate = dueDate;
+        this.task[j].status = status;
+      } else {
+        console.log("else false:" + this.task[j].id);
+      }
+    }    
   }
   //delete task by passing id
   deletecurrentTask(passingID) {
@@ -89,20 +99,5 @@ class TaskManager {
       this.id = Number(currentId);
     }
   }
-  delete(taskId) {
-  //  let getValuesArr=[];
-  //  getValuesArr =this.getValuesPassingID(taskId) 
-  //  const tasksJson = JSON.stringify(getValuesArr);
-  //  if (localStorage.getItem("task")) {
-  //    localStorage.removeItem("task",tasksJson);
-  //  }
-
-    // if (localStorage.getItem("task")) {
-      
-    //   const tasksJson = JSON.stringify(this.task);
-
-    // // Store the JSON string in localStorage
-    // localStorage.setItem("task", tasksJson);
-    // }
-  }
+  
 }

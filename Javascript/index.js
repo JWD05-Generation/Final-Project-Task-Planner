@@ -32,81 +32,86 @@ var fail = 0;
 //   e.stopPropagation();
 // });
 
- //Check Task Name input value has more than 5 characters
- const validateTaskName = () => {
- if (idTaskName.value.length > 5) {
-  idTaskName.classList.add("is-valid");
-  idTaskName.classList.remove("is-invalid");
-} else {
-  idTaskName.classList.add("is-invalid");
-  idTaskName.classList.remove("is-valid");
-  fail++;
-}
+//Check Task Name input value has more than 5 characters
+const validateTaskName = () => {
+  if (idTaskName.value.length > 5) {
+    idTaskName.classList.add("is-valid");
+    idTaskName.classList.remove("is-invalid");
+  } else {
+    idTaskName.classList.add("is-invalid");
+    idTaskName.classList.remove("is-valid");
+    fail++;
+  }
 };
 //Check Task Description input value has more than 5 characters
 const validateTaskDescription = () => {
-if (idTaskDescription.value.length > 5) {
-  idTaskDescription.classList.add("is-valid");
-  idTaskDescription.classList.remove("is-invalid");
-} else {
-  idTaskDescription.classList.add("is-invalid");
-  idTaskDescription.classList.remove("is-valid");
-  fail++;
-}
+  if (idTaskDescription.value.length > 5) {
+    idTaskDescription.classList.add("is-valid");
+    idTaskDescription.classList.remove("is-invalid");
+  } else {
+    idTaskDescription.classList.add("is-invalid");
+    idTaskDescription.classList.remove("is-valid");
+    fail++;
+  }
 };
 //Check Assigned To value input value has more than 5 characters
 const validateAssignedTo = () => {
-if (idAssignedTo.value.length > 5) {
-  idAssignedTo.classList.add("is-valid");
-  idAssignedTo.classList.remove("is-invalid");
-} else {
-  idAssignedTo.classList.add("is-invalid");
-  idAssignedTo.classList.remove("is-valid");
-  fail++;
-}
+  if (idAssignedTo.value.length > 5) {
+    idAssignedTo.classList.add("is-valid");
+    idAssignedTo.classList.remove("is-invalid");
+  } else {
+    idAssignedTo.classList.add("is-invalid");
+    idAssignedTo.classList.remove("is-valid");
+    fail++;
+  }
 };
 //Function to check due date is greater or equal to today's date
 const dateCheck = () => {
-  const date = new Date(idDate.value);
+  const givenDate = new Date(idDate.value);
   const today = new Date();
   //padstart gives eg: 5 -05 , 12- 12
-  const dateformat= String(date.getDate()).padStart(2, '0');
-  const todaysdateformat =String(today.getDate()).padStart(2, '0');
-  const monthformat= String(date.getMonth() + 1).padStart(2, '0');
-  const todaysmonthformat =String(today.getMonth() + 1).padStart(2, '0');
-  
-  const formattedToday = todaysdateformat + "/" + todaysmonthformat + "/" + today.getFullYear();
-  const formattedDate =  dateformat + "/" + monthformat + "/" + date.getFullYear();  
-  // console.log('formated date'+formattedDate);
-  // console.log('todays date'+formattedToday);
+  //given input value
+  const dateformat = String(givenDate.getDate()).padStart(2, "0");
+  const monthformat = String(givenDate.getMonth() + 1).padStart(2, "0");
+
+  //today's date
+  const todaysdateformat = String(today.getDate()).padStart(2, "0");
+  const todaysmonthformat = String(today.getMonth() + 1).padStart(2, "0");
+
+  const formattedToday =  today.getFullYear() + "/" + todaysmonthformat + "/" + todaysdateformat;
+  const formattedDate =   givenDate.getFullYear() + "/" + monthformat + "/" + dateformat;
+  // console.log("formated date" + formattedDate);
+  // console.log("todays date" + formattedToday);
   if (formattedDate >= formattedToday) {
-   return true;
-  }else {
-   return false;
+    // console.log("givendate is greater");
+    return true;
+  } else {
+    // console.log("givendate is less");
+    return false;
   }
-}
+};
 //Check Task Due Date input value is not empty
 const validateDate = () => {
-if (dateCheck() && idDate.value !== "") {
-  idDate.classList.add("is-valid");
-  idDate.classList.remove("is-invalid");
-} else {
-  idDate.classList.add("is-invalid");
-  idDate.classList.remove("is-valid");
-  fail++;
-}
+  if (dateCheck() && idDate.value !== "") {
+    idDate.classList.add("is-valid");
+    idDate.classList.remove("is-invalid");
+  } else {
+    idDate.classList.add("is-invalid");
+    idDate.classList.remove("is-valid");
+    fail++;
+  }
 };
 //Check Task Status input value
 const validateTaskStatus = () => {
-idStatusValue = idStatus.options[idStatus.selectedIndex].value;
-if (idStatusValue !== "Choose...") {
-  idStatus.classList.add("is-valid");
-  idStatus.classList.remove("is-invalid");
-} else {
-  idStatus.classList.add("is-invalid");
-  idStatus.classList.remove("is-valid");
-  fail++;
-}
+  idStatusValue = idStatus.options[idStatus.selectedIndex].value;
+  if (idStatusValue !== "Choose...") {
+    idStatus.classList.add("is-valid");
+    idStatus.classList.remove("is-invalid");
+  } else {
+    idStatus.classList.add("is-invalid");
+    idStatus.classList.remove("is-valid");
+    fail++;
+  }
 };
 //Function to validate inpute fields
 const validationFields = () => {
@@ -122,20 +127,20 @@ const validationFields = () => {
     return;
   }
 };
-idTaskName.addEventListener("change", ()  => {
-  validateTaskName()
+idTaskName.addEventListener("change", () => {
+  validateTaskName();
 });
-idTaskDescription.addEventListener("change", ()  =>{
+idTaskDescription.addEventListener("change", () => {
   validateTaskDescription();
 });
-idAssignedTo.addEventListener("change", ()  =>{
+idAssignedTo.addEventListener("change", () => {
   validateAssignedTo();
 });
-idDate.addEventListener("change", ()  =>{
+idDate.addEventListener("change", () => {
   dateCheck();
   validateDate();
 });
-idStatus.addEventListener("change", ()  =>{
+idStatus.addEventListener("change", () => {
   validateTaskStatus();
 });
 //Getting values from the form and adding to taskmanager
@@ -184,7 +189,7 @@ btnAddTask.addEventListener("click", (event) => {
   validationFields();
   addToTaskLst();
   taskmanager.save();
-  
+
   console.log(taskmanager.task);
 });
 //Creating cards for each task in the taskmanager
