@@ -202,8 +202,8 @@ const addHtmlForm = (taskitem) => {
         <p class="card-text">Assigned To: ${taskitem.assignedTo}</p>
         <p class="card-text">Due Date: ${taskitem.dueDate}</p>
         <p class="card-text">Status: ${taskitem.status}</p>
-        <button class="btn btn-outline-info" value="Edit" name="${taskitem.id}" onclick="editingDataModel(${taskitem.id})">Edit</button>
-        <button class="btn btn-outline-danger" value="Delete" name="${taskitem.id}" onclick="deletingDataModel(${taskitem.id})">Delete</button>
+        <button class="btn btn-outline-info" value="Edit" name="${taskitem.id}" onclick="editingDataModel(${taskitem.id})" title="Edit Task"><span style='font-size:1.2rem;'>&#9997;</span></button>
+        <button class="btn btn-outline-danger" b value="Delete" name="${taskitem.id}" onclick="deletingDataModel(${taskitem.id})" title="Delete Task"><span style='font-size:1.2rem;'>&#9940;</span></button>
     </div>
     </div>
     `;
@@ -218,7 +218,7 @@ const addHtmlFormDone = (taskitem) => {
         <p class="card-text">Assigned To: ${taskitem.assignedTo}</p>
         <p class="card-text">Due Date: ${taskitem.dueDate}</p>
         <p class="card-text">Status: ${taskitem.status}</p>
-        <button class="btn btn-outline-danger" value="Delete" name="${taskitem.id}" onclick="deletingDataModel(${taskitem.id})">Delete</button>
+        <button class="btn btn-outline-danger" value="Delete" name="${taskitem.id}" onclick="deletingDataModel(${taskitem.id})" title="Delete Task"><span style='font-size:1.2rem;'>&#9940;</span></button>
     </div>
     </div>
     `;
