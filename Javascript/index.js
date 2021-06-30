@@ -78,8 +78,10 @@ const dateCheck = () => {
   const todaysdateformat = String(today.getDate()).padStart(2, "0");
   const todaysmonthformat = String(today.getMonth() + 1).padStart(2, "0");
 
-  const formattedToday =  today.getFullYear() + "/" + todaysmonthformat + "/" + todaysdateformat;
-  const formattedDate =   givenDate.getFullYear() + "/" + monthformat + "/" + dateformat;
+  const formattedToday =
+    today.getFullYear() + "/" + todaysmonthformat + "/" + todaysdateformat;
+  const formattedDate =
+    givenDate.getFullYear() + "/" + monthformat + "/" + dateformat;
   // console.log("formated date" + formattedDate);
   // console.log("todays date" + formattedToday);
   if (formattedDate >= formattedToday) {
@@ -195,30 +197,35 @@ btnAddTask.addEventListener("click", (event) => {
 //Creating cards for each task in the taskmanager
 const addHtmlForm = (taskitem) => {
   return `
-    <div class="card mycardclass">
-    <div class="card-body">
-        <h3 class="card-title">Task Name: ${taskitem.name}</h3>
+    <div class="card mycardclass" style="width:25rem;">
+    <div class="card-body ">
+        <h5 class="card-header">${taskitem.name}</h5>
         <p class="card-text">Description: ${taskitem.description}</p>
         <p class="card-text">Assigned To: ${taskitem.assignedTo}</p>
         <p class="card-text">Due Date: ${taskitem.dueDate}</p>
-        <p class="card-text">Status: ${taskitem.status}</p>
-        <button class="btn btn-outline-info" value="Edit" name="${taskitem.id}" onclick="editingDataModel(${taskitem.id})" title="Edit Task"><span style='font-size:1.2rem;'>&#9997;</span></button>
-        <button class="btn btn-outline-danger" b value="Delete" name="${taskitem.id}" onclick="deletingDataModel(${taskitem.id})" title="Delete Task"><span style='font-size:1.2rem;'>&#9940;</span></button>
-    </div>
+        <p class="card-text ">Status: ${taskitem.status}</p>
+        <div class="d-flex flex-row justify-content-end ">
+        <button class="btn btn-outline-info" value="Edit" name="${taskitem.id}" onclick="editingDataModel(${taskitem.id})"  title="Edit Task"><span style='font-size:1.2rem; width:20px;'>&#9997;</span></button>
+        
+        <button class="btn btn-outline-danger" value="Delete" name="${taskitem.id}" onclick="deletingDataModel(${taskitem.id})"  title="Delete Task"><span style='font-size:1.2rem;'>&#9940;</span></button>
+       </div>
+      </div>
     </div>
     `;
 };
 //Creating cards for each task "done" in the taskmanager
 const addHtmlFormDone = (taskitem) => {
   return `
-    <div class="card mycardclass">
+    <div class="card mycardclass" style="width:25rem;">
     <div class="card-body">
-        <h3 class="card-title">Task Name: ${taskitem.name}</h3>
+        <h5 class="card-header">${taskitem.name}</h5>
         <p class="card-text">Description: ${taskitem.description}</p>
         <p class="card-text">Assigned To: ${taskitem.assignedTo}</p>
         <p class="card-text">Due Date: ${taskitem.dueDate}</p>
         <p class="card-text">Status: ${taskitem.status}</p>
+        <div class="d-flex flex-row justify-content-end ">
         <button class="btn btn-outline-danger" value="Delete" name="${taskitem.id}" onclick="deletingDataModel(${taskitem.id})" title="Delete Task"><span style='font-size:1.2rem;'>&#9940;</span></button>
+        </div>
     </div>
     </div>
     `;
