@@ -12,6 +12,7 @@ To create a task planner to organize our tasks categorized into different status
 •	CSS, Bootstrap 4.0    
 •	JavaScript (ES6), JQuery
 
+**Data storage**
 •	Local database 
 
 **Browser**  
