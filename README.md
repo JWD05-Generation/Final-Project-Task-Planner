@@ -24,23 +24,23 @@ The layout was designed using Balsamiq.
 
 Download pages from github repo.
 
-start from index.html in the root folder.
+Start from index.html in the root folder.
 
 **Functionalities**
-1. Add Task 
+1. Add Tasks 
 2. Update Tasks
-3. Delete Tasks.
+3. Delete Tasks
 4. Views of the task is displayed using Bootstrap Card layout. Catagorised by Status(Todo, InProgress, Revirew, Done).
 
-When status is assigned to "Done" cannot change its status, can just delete task.
+When status is assigned to "Done" cannot change it's status, can just delete task.
 
-Task form is designed using Bootstrap model view, and validations using Javascripts.
+Task form is designed using Bootstrap modal view, and validations are done using Javascripts.
 
 All the tasks are stored in your Local Database.
 
-Additional Features designed in CSS animations : Delete Button:hover example of shake animation , Card board on hover . and Add task button hover and heading hover.
+Additional Features designed in CSS animations : Delete Button: hover example of shake animation , Card board on hover and Add task button hover and heading hover.
 
-Edit Button and Delete button designed using UniCode, not an image button.
+Edit Button and Delete button are designed using UniCode not an image button.
 
 
 
