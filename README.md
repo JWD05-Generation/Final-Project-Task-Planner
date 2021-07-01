@@ -1,10 +1,10 @@
-**Final-Project-Task-Planner**_
+**Final-Project-Task-Planner**  
 
-**Team Members**_
+**Team Members**  
 •	Dharani
 •	Thakshene
 
-**Objective**
+**Objective**  
 To create a task planner to organize our tasks categorized into different status, display tasks with required information to the planner by adding them with the ability to modify and delete tasks. 
 
 **Software**
