@@ -207,7 +207,7 @@ const addHtmlForm = (taskitem) => {
         <div class="d-flex flex-row justify-content-end ">
         <button class="btn btn-outline-info" value="Edit" name="${taskitem.id}" onclick="editingDataModel(${taskitem.id})"  title="Edit Task"><span style='font-size:1.2rem; width:20px;'>&#9997;</span></button>
         
-        <button class="btn btn-outline-danger" value="Delete" name="${taskitem.id}" onclick="deletingDataModel(${taskitem.id})"  title="Delete Task"><span style='font-size:1.2rem;'>&#9940;</span></button>
+        <button class="btn btn-outline-danger btnShake" value="Delete" name="${taskitem.id}" onclick="deletingDataModel(${taskitem.id})"  title="Delete Task"><span style='font-size:1.2rem;'>&#9940;</span></button>
        </div>
       </div>
     </div>
@@ -224,7 +224,7 @@ const addHtmlFormDone = (taskitem) => {
         <p class="card-text">Due Date: ${taskitem.dueDate}</p>
         <p class="card-text">Status: ${taskitem.status}</p>
         <div class="d-flex flex-row justify-content-end ">
-        <button class="btn btn-outline-danger" value="Delete" name="${taskitem.id}" onclick="deletingDataModel(${taskitem.id})" title="Delete Task"><span style='font-size:1.2rem;'>&#9940;</span></button>
+        <button class="btn btn-outline-danger btnShake" value="Delete" name="${taskitem.id}" onclick="deletingDataModel(${taskitem.id})" title="Delete Task"><span style='font-size:1.2rem;'>&#9940;</span></button>
         </div>
     </div>
     </div>
