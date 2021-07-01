@@ -1,4 +1,4 @@
-##Final-Project-Task-Planner
+**Final-Project-Task-Planner
 
 ####Team Members
 •	Dharani
